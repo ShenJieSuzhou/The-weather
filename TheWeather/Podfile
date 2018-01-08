@@ -1,0 +1,5 @@
+platform :ios, '8.0'
+target 'TheWeather' do
+pod 'SDWebImage', '~>3.8'
+pod 'MJRefresh'
+end
