@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "RootViewController.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UITabBar *item = [UITabBar appearance];
+    item.tintColor = [UIColor orangeColor];
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    // 禁止透明度
+    navigationBar.translucent = NO;
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    
+    self.window.rootViewController = [MenuViewController new];
     return YES;
 }
 

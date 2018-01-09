@@ -14,6 +14,15 @@
 		442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442DB6AB1E8E27FB00724551 /* Assets.xcassets */; };
 		442DB6AF1E8E27FB00724551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442DB6AD1E8E27FB00724551 /* LaunchScreen.storyboard */; };
 		5E4DE3AFA3850E0DF958F008 /* libPods-TheWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C772F22E1A2643B5871C51 /* libPods-TheWeather.a */; };
+		E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31320046A5F00CFFA52 /* MainViewController.m */; };
+		E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */; };
+		E5BCF31920046C5C00CFFA52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF31820046C5C00CFFA52 /* Images.xcassets */; };
+		E5BCF31C20048FFC00CFFA52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31B20048FFC00CFFA52 /* BaseViewController.m */; };
+		E5BCF3282004952B00CFFA52 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3252004952B00CFFA52 /* NewsViewController.m */; };
+		E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF32B2004953300CFFA52 /* SportsInfoViewController.m */; };
+		E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3302004953B00CFFA52 /* WeatherViewController.m */; };
+		E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3332004B25500CFFA52 /* RootViewController.m */; };
+		E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,24 @@
 		442DB6B01E8E27FB00724551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EB7018D5FA456B64FA90360 /* Pods-TheWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		B852F896BE569D6E17EB3A98 /* Pods-TheWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.release.xcconfig"; sourceTree = "<group>"; };
+		E5BCF31220046A5F00CFFA52 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E5BCF31320046A5F00CFFA52 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E5BCF31520046BBA00CFFA52 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
+		E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
+		E5BCF31820046C5C00CFFA52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E5BCF31A20048FFC00CFFA52 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E5BCF31B20048FFC00CFFA52 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E5BCF3242004952B00CFFA52 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		E5BCF3252004952B00CFFA52 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		E5BCF32A2004953300CFFA52 /* SportsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsInfoViewController.h; sourceTree = "<group>"; };
+		E5BCF32B2004953300CFFA52 /* SportsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsInfoViewController.m; sourceTree = "<group>"; };
+		E5BCF32F2004953B00CFFA52 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		E5BCF3302004953B00CFFA52 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		E5BCF3322004B25500CFFA52 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E5BCF3332004B25500CFFA52 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E5BCF3352004BFCE00CFFA52 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		E5BCF3382004C96C00CFFA52 /* MenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,14 +92,21 @@
 		442DB69E1E8E27F900724551 /* TheWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E5BCF31F2004944800CFFA52 /* News */,
+				E5BCF31E2004943E00CFFA52 /* Sports */,
+				E5BCF31D2004942A00CFFA52 /* Weather */,
+				E5BCF31120046A3300CFFA52 /* Main */,
 				442DB6A21E8E27F900724551 /* AppDelegate.h */,
 				442DB6A31E8E27FA00724551 /* AppDelegate.m */,
+				E5BCF3322004B25500CFFA52 /* RootViewController.h */,
+				E5BCF3332004B25500CFFA52 /* RootViewController.m */,
 				442DB6A51E8E27FA00724551 /* ViewController.h */,
 				442DB6A61E8E27FA00724551 /* ViewController.m */,
 				442DB6A81E8E27FA00724551 /* Main.storyboard */,
 				442DB6AB1E8E27FB00724551 /* Assets.xcassets */,
 				442DB6AD1E8E27FB00724551 /* LaunchScreen.storyboard */,
 				442DB6B01E8E27FB00724551 /* Info.plist */,
+				E5BCF31820046C5C00CFFA52 /* Images.xcassets */,
 				442DB69F1E8E27F900724551 /* Supporting Files */,
 			);
 			path = TheWeather;
@@ -84,6 +118,121 @@
 				442DB6A01E8E27F900724551 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5BCF31120046A3300CFFA52 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF3382004C96C00CFFA52 /* MenuDelegate.h */,
+				E5BCF31220046A5F00CFFA52 /* MainViewController.h */,
+				E5BCF31320046A5F00CFFA52 /* MainViewController.m */,
+				E5BCF31520046BBA00CFFA52 /* BaseNavigationViewController.h */,
+				E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */,
+				E5BCF31A20048FFC00CFFA52 /* BaseViewController.h */,
+				E5BCF31B20048FFC00CFFA52 /* BaseViewController.m */,
+				E5BCF3352004BFCE00CFFA52 /* MenuViewController.h */,
+				E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E5BCF31D2004942A00CFFA52 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF3222004946600CFFA52 /* Controller */,
+				E5BCF3212004946100CFFA52 /* View */,
+				E5BCF3202004945500CFFA52 /* Model */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		E5BCF31E2004943E00CFFA52 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF3292004953300CFFA52 /* Controller */,
+				E5BCF32C2004953300CFFA52 /* Model */,
+				E5BCF32D2004953300CFFA52 /* View */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		E5BCF31F2004944800CFFA52 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF3232004952B00CFFA52 /* Controller */,
+				E5BCF3272004952B00CFFA52 /* Model */,
+				E5BCF3262004952B00CFFA52 /* View */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		E5BCF3202004945500CFFA52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5BCF3212004946100CFFA52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5BCF3222004946600CFFA52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF32F2004953B00CFFA52 /* WeatherViewController.h */,
+				E5BCF3302004953B00CFFA52 /* WeatherViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5BCF3232004952B00CFFA52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF3242004952B00CFFA52 /* NewsViewController.h */,
+				E5BCF3252004952B00CFFA52 /* NewsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5BCF3262004952B00CFFA52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5BCF3272004952B00CFFA52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5BCF3292004953300CFFA52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF32A2004953300CFFA52 /* SportsInfoViewController.h */,
+				E5BCF32B2004953300CFFA52 /* SportsInfoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5BCF32C2004953300CFFA52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5BCF32D2004953300CFFA52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EBDE69FD644AA9012C5BE8A0 /* Pods */ = {
@@ -166,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				442DB6AF1E8E27FB00724551 /* LaunchScreen.storyboard in Resources */,
+				E5BCF31920046C5C00CFFA52 /* Images.xcassets in Resources */,
 				442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */,
 				442DB6AA1E8E27FA00724551 /* Main.storyboard in Resources */,
 			);
@@ -227,8 +377,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				442DB6A71E8E27FA00724551 /* ViewController.m in Sources */,
+				E5BCF31C20048FFC00CFFA52 /* BaseViewController.m in Sources */,
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
+				E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */,
+				E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */,
+				E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */,
+				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
+				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,
+				E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */,
+				E5BCF3282004952B00CFFA52 /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,8 +507,10 @@
 			baseConfigurationReference = 4EB7018D5FA456B64FA90360 /* Pods-TheWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = TheWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.TheWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,8 +524,10 @@
 			baseConfigurationReference = B852F896BE569D6E17EB3A98 /* Pods-TheWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = TheWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.TheWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,6 +555,7 @@
 				442DB6B51E8E27FB00724551 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
