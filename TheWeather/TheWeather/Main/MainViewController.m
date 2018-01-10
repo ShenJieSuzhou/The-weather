@@ -61,13 +61,15 @@
 
 #pragma -mark MenusDelegate
 - (void)openMenuViewController{
-    NSLog(@"1111");
-    [self.view setFrame:CGRectMake(300, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view setFrame:CGRectMake(300, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
 }
 
 - (void)closeMenuController{
-    NSLog(@"2222");
-    [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
 }
 
 @end

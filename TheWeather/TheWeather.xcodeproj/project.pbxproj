@@ -23,6 +23,7 @@
 		E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3302004953B00CFFA52 /* WeatherViewController.m */; };
 		E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3332004B25500CFFA52 /* RootViewController.m */; };
 		E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */; };
+		E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF33D2005B5BA00CFFA52 /* MenuViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,9 @@
 		E5BCF3352004BFCE00CFFA52 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		E5BCF3382004C96C00CFFA52 /* MenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDelegate.h; sourceTree = "<group>"; };
+		E5BCF33B2005AF6A00CFFA52 /* GlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
+		E5BCF33C2005B5BA00CFFA52 /* MenuViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
+		E5BCF33D2005B5BA00CFFA52 /* MenuViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		442DB69E1E8E27F900724551 /* TheWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E5BCF33A2005AF5500CFFA52 /* Utils */,
 				E5BCF31F2004944800CFFA52 /* News */,
 				E5BCF31E2004943E00CFFA52 /* Sports */,
 				E5BCF31D2004942A00CFFA52 /* Weather */,
@@ -123,6 +128,7 @@
 		E5BCF31120046A3300CFFA52 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E5BCF3392005ACD700CFFA52 /* views */,
 				E5BCF3382004C96C00CFFA52 /* MenuDelegate.h */,
 				E5BCF31220046A5F00CFFA52 /* MainViewController.h */,
 				E5BCF31320046A5F00CFFA52 /* MainViewController.m */,
@@ -233,6 +239,23 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5BCF3392005ACD700CFFA52 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF33C2005B5BA00CFFA52 /* MenuViewCell.h */,
+				E5BCF33D2005B5BA00CFFA52 /* MenuViewCell.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		E5BCF33A2005AF5500CFFA52 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF33B2005AF6A00CFFA52 /* GlobalDefine.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		EBDE69FD644AA9012C5BE8A0 /* Pods */ = {
@@ -385,6 +408,7 @@
 				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
 				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,
+				E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */,
 				E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */,
 				E5BCF3282004952B00CFFA52 /* NewsViewController.m in Sources */,
 			);
