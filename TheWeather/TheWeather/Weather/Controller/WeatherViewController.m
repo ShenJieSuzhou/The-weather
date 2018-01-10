@@ -15,11 +15,14 @@
 
 @implementation WeatherViewController
 @synthesize guesture = _guesture;
+@synthesize customWeatherView = _customWeatherView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
+    [self requestWeatherInfo];
+    [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
     
@@ -28,6 +31,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/*
+ *@brief 请求天气数据
+ */
+- (void)requestWeatherInfo{
+    
+}
+
+- (CustomCollectionView *)customWeatherView{
+    if(!_customWeatherView){
+        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    }
+    
+    return _customWeatherView;
+}
+
+/*
+ *@brief 初始化天气可视化视图
+ */
+- (void)initWeatherVisibleView{
+    [self.view addSubview:[self customWeatherView]];
 }
 
 /*
