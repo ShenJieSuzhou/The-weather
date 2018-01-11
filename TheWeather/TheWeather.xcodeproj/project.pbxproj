@@ -24,11 +24,14 @@
 		E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3332004B25500CFFA52 /* RootViewController.m */; };
 		E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3362004BFCE00CFFA52 /* MenuViewController.m */; };
 		E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF33D2005B5BA00CFFA52 /* MenuViewCell.m */; };
-		E5BCF3412005F3EF00CFFA52 /* WeatehrInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3402005F3EF00CFFA52 /* WeatehrInfo.m */; };
 		E5BCF3482005F41C00CFFA52 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3432005F41C00CFFA52 /* CustomCollectionViewCell.m */; };
 		E5BCF3492005F41C00CFFA52 /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3452005F41C00CFFA52 /* CustomCollectionView.m */; };
 		E5BCF34A2005F41C00CFFA52 /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3472005F41C00CFFA52 /* CustomFlowLayout.m */; };
-		E5BCF34D200618F700CFFA52 /* TodayWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF34C200618F700CFFA52 /* TodayWeatherView.m */; };
+		E5BCF3502006FCD100CFFA52 /* TodayWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF34F2006FCD100CFFA52 /* TodayWeatherView.m */; };
+		E5BCF3532007007A00CFFA52 /* CurrentWeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF3522007007A00CFFA52 /* CurrentWeatherInfo.m */; };
+		E5BCF356200700A700CFFA52 /* FutureWeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF355200700A700CFFA52 /* FutureWeatherInfo.m */; };
+		E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF358200732A200CFFA52 /* CurrentWeatherViewCell.m */; };
+		E5BCF35B200732A200CFFA52 /* CurrentWeatherViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,16 +69,21 @@
 		E5BCF33B2005AF6A00CFFA52 /* GlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
 		E5BCF33C2005B5BA00CFFA52 /* MenuViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		E5BCF33D2005B5BA00CFFA52 /* MenuViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
-		E5BCF33F2005F3EF00CFFA52 /* WeatehrInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatehrInfo.h; sourceTree = "<group>"; };
-		E5BCF3402005F3EF00CFFA52 /* WeatehrInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatehrInfo.m; sourceTree = "<group>"; };
 		E5BCF3422005F41C00CFFA52 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		E5BCF3432005F41C00CFFA52 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		E5BCF3442005F41C00CFFA52 /* CustomCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
 		E5BCF3452005F41C00CFFA52 /* CustomCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
 		E5BCF3462005F41C00CFFA52 /* CustomFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
 		E5BCF3472005F41C00CFFA52 /* CustomFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
-		E5BCF34B200618F700CFFA52 /* TodayWeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayWeatherView.h; sourceTree = "<group>"; };
-		E5BCF34C200618F700CFFA52 /* TodayWeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayWeatherView.m; sourceTree = "<group>"; };
+		E5BCF34E2006FCD100CFFA52 /* TodayWeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayWeatherView.h; sourceTree = "<group>"; };
+		E5BCF34F2006FCD100CFFA52 /* TodayWeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayWeatherView.m; sourceTree = "<group>"; };
+		E5BCF3512007007A00CFFA52 /* CurrentWeatherInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherInfo.h; sourceTree = "<group>"; };
+		E5BCF3522007007A00CFFA52 /* CurrentWeatherInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherInfo.m; sourceTree = "<group>"; };
+		E5BCF354200700A700CFFA52 /* FutureWeatherInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FutureWeatherInfo.h; sourceTree = "<group>"; };
+		E5BCF355200700A700CFFA52 /* FutureWeatherInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FutureWeatherInfo.m; sourceTree = "<group>"; };
+		E5BCF357200732A200CFFA52 /* CurrentWeatherViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherViewCell.h; sourceTree = "<group>"; };
+		E5BCF358200732A200CFFA52 /* CurrentWeatherViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherViewCell.m; sourceTree = "<group>"; };
+		E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +198,10 @@
 		E5BCF3202004945500CFFA52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5BCF33F2005F3EF00CFFA52 /* WeatehrInfo.h */,
-				E5BCF3402005F3EF00CFFA52 /* WeatehrInfo.m */,
+				E5BCF3512007007A00CFFA52 /* CurrentWeatherInfo.h */,
+				E5BCF3522007007A00CFFA52 /* CurrentWeatherInfo.m */,
+				E5BCF354200700A700CFFA52 /* FutureWeatherInfo.h */,
+				E5BCF355200700A700CFFA52 /* FutureWeatherInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,8 +215,11 @@
 				E5BCF3432005F41C00CFFA52 /* CustomCollectionViewCell.m */,
 				E5BCF3462005F41C00CFFA52 /* CustomFlowLayout.h */,
 				E5BCF3472005F41C00CFFA52 /* CustomFlowLayout.m */,
-				E5BCF34B200618F700CFFA52 /* TodayWeatherView.h */,
-				E5BCF34C200618F700CFFA52 /* TodayWeatherView.m */,
+				E5BCF34E2006FCD100CFFA52 /* TodayWeatherView.h */,
+				E5BCF34F2006FCD100CFFA52 /* TodayWeatherView.m */,
+				E5BCF357200732A200CFFA52 /* CurrentWeatherViewCell.h */,
+				E5BCF358200732A200CFFA52 /* CurrentWeatherViewCell.m */,
+				E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +377,7 @@
 			files = (
 				442DB6AF1E8E27FB00724551 /* LaunchScreen.storyboard in Resources */,
 				E5BCF31920046C5C00CFFA52 /* Images.xcassets in Resources */,
+				E5BCF35B200732A200CFFA52 /* CurrentWeatherViewCell.xib in Resources */,
 				442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */,
 				442DB6AA1E8E27FA00724551 /* Main.storyboard in Resources */,
 			);
@@ -432,15 +446,17 @@
 			files = (
 				442DB6A71E8E27FA00724551 /* ViewController.m in Sources */,
 				E5BCF31C20048FFC00CFFA52 /* BaseViewController.m in Sources */,
-				E5BCF34D200618F700CFFA52 /* TodayWeatherView.m in Sources */,
+				E5BCF3502006FCD100CFFA52 /* TodayWeatherView.m in Sources */,
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
 				E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */,
+				E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */,
+				E5BCF356200700A700CFFA52 /* FutureWeatherInfo.m in Sources */,
 				E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */,
 				E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */,
 				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
+				E5BCF3532007007A00CFFA52 /* CurrentWeatherInfo.m in Sources */,
 				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,
-				E5BCF3412005F3EF00CFFA52 /* WeatehrInfo.m in Sources */,
 				E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */,
 				E5BCF3482005F41C00CFFA52 /* CustomCollectionViewCell.m in Sources */,
 				E5BCF3492005F41C00CFFA52 /* CustomCollectionView.m in Sources */,

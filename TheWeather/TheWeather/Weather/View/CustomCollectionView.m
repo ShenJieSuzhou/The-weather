@@ -10,6 +10,7 @@
 #import "CustomFlowLayout.h"
 #import "CustomCollectionViewCell.h"
 #import "GlobalDefine.h"
+#import "CurrentWeatherViewCell.h"
 
 @implementation CustomCollectionView
 @synthesize delegate = _delegate;
@@ -20,7 +21,7 @@
     if (self) {
         // Initialization code
         _itemArray = [[NSMutableArray alloc] init];
-        [self setBackgroundColor:[UIColor clearColor]];
+        [self setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:[self collectionView]];
     }
     return self;
@@ -40,8 +41,11 @@
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.backgroundColor = [UIColor clearColor];
         // 注册cell
-        [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"ProfileCollectionViewCell"];
-        [_collectionView registerClass:[CustomCollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeadCollectionViewCell"];
+        [_collectionView registerClass:[CurrentWeatherViewCell class] forCellWithReuseIdentifier:@"CurrentWeatherViewCell"];
+//        [_collectionView registerClass:[CurrentWeatherViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell"];
+        UINib *nib = [UINib nibWithNibName:@"CurrentWeatherViewCell"
+                                    bundle: [NSBundle mainBundle]];
+        [_collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell"];
         
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -83,18 +87,15 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    CustomCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCollectionViewCell" forIndexPath:indexPath];
+    CurrentWeatherViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
     
-    [cell.menuName setText:@"1111111"];
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
-    CustomCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeadCollectionViewCell" forIndexPath:indexPath];
-    
-    
-    [cell.menuName setText:@"1111111"];
+    CurrentWeatherViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
+
     return cell;
 }
 

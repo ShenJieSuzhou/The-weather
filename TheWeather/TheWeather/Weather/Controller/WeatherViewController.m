@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [self requestWeatherInfo];
     [self initWeatherVisibleView];
     [self initHerderView];

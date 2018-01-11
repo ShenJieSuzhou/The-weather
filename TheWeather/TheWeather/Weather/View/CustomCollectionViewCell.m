@@ -10,23 +10,14 @@
 
 @implementation CustomCollectionViewCell
 
-@synthesize imgIcon = _imgIcon;
-@synthesize menuName = _menuName;
+@synthesize todayWeather = _todayWeather;
+@synthesize currentWeather = _currentWeather;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor whiteColor];
-        self.imgIcon = [[UIImageView alloc] init];
-        self.menuName = [[UILabel alloc] init];
-        
-        self.imgIcon.contentMode = UIViewContentModeScaleAspectFit;
-        
-        self.menuName.textAlignment = NSTextAlignmentCenter;
-        self.menuName.font = [UIFont systemFontOfSize:12.0];
-        self.menuName.textColor = [UIColor grayColor];
-        [self addSubview:self.imgIcon];
-        [self addSubview:self.menuName];
+        self.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.todayWeather];
     }
     
     return self;
@@ -38,8 +29,25 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self.imgIcon setFrame:CGRectMake(15, self.frame.size.height - 200, 100, 100)];
-    self.menuName.frame = CGRectMake(150, self.frame.size.height - 200, 100, 50);
+    [self.todayWeather setFrame:CGRectMake(0, self.frame.size.height - 200, self.frame.size.width, 200)];
+}
+
+- (TodayWeatherView *)todayWeather{
+    if(!_todayWeather){
+        _todayWeather = [TodayWeatherView new];
+    }
+    
+    return _todayWeather;
+}
+
+- (void)setCurrentWeather:(CurrentWeatherInfo *)currentWeather{
+    [_todayWeather.tempture setText:@"-100"];
+    [_todayWeather.weather setText:@"晴"];
+    [_todayWeather.windDirection setText:@"西风"];
+    [_todayWeather.windStrength setText:@"4级"];
+    [_todayWeather.humidity setText:@"50%"];
+    [_todayWeather.time setText:@"13:15发布"];
+    [_todayWeather.digree setText:@"°"];
 }
 
 @end
