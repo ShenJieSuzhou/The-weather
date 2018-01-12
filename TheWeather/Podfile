@@ -3,4 +3,5 @@ target 'TheWeather' do
 pod 'SDWebImage', '~>3.8'
 pod 'MJRefresh'
 pod 'AFNetworking'
+pod 'Masonry'
 end
