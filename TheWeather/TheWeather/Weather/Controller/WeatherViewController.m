@@ -16,6 +16,8 @@
 @implementation WeatherViewController
 @synthesize guesture = _guesture;
 @synthesize customWeatherView = _customWeatherView;
+@synthesize screenImage = _screenImage;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +25,7 @@
     self.navigationController.navigationBarHidden = YES;
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self requestWeatherInfo];
+    [self initScreenImage];
     [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
@@ -47,6 +50,16 @@
     }
     
     return _customWeatherView;
+}
+
+/*
+ * @brief 初始化壁纸
+ */
+- (void)initScreenImage{
+    self.screenImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Eiffel"]];
+    self.screenImage.contentMode = UIViewContentModeScaleAspectFill;
+    [self.screenImage setFrame:self.view.bounds];
+    [self.view addSubview:self.screenImage];
 }
 
 /*

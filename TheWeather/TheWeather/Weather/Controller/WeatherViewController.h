@@ -20,4 +20,6 @@
 @property (strong, nonatomic) UITapGestureRecognizer *guesture;
 @property (nonatomic, strong) CustomCollectionView *customWeatherView;
 
+@property (strong, nonatomic) UIImageView *screenImage;
+
 @end

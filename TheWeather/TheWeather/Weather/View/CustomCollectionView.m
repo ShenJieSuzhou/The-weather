@@ -21,7 +21,7 @@
     if (self) {
         // Initialization code
         _itemArray = [[NSMutableArray alloc] init];
-        [self setBackgroundColor:[UIColor whiteColor]];
+        [self setBackgroundColor:[UIColor clearColor]];
         [self addSubview:[self collectionView]];
     }
     return self;
@@ -42,7 +42,7 @@
         _collectionView.backgroundColor = [UIColor clearColor];
         // 注册cell
         [_collectionView registerClass:[CurrentWeatherViewCell class] forCellWithReuseIdentifier:@"CurrentWeatherViewCell"];
-//        [_collectionView registerClass:[CurrentWeatherViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell"];
+
         UINib *nib = [UINib nibWithNibName:@"CurrentWeatherViewCell"
                                     bundle: [NSBundle mainBundle]];
         [_collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell"];
@@ -62,7 +62,7 @@
  * @brief 设置 HeadCollectionViewCell frame 大小
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(self.bounds.size.width, self.bounds.size.height); // 设置headerView的宽高
+    return CGSizeMake(self.bounds.size.width, self.bounds.size.height - 60); // 设置headerView的宽高
 }
 
 #pragma mark - collectionViewDelegate
