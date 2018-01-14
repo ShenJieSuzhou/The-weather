@@ -8,6 +8,7 @@
 
 #import "WeatherViewController.h"
 #import "GYZChooseCityController.h"
+#import "LocationController.h"
 
 @interface WeatherViewController ()
 
@@ -29,6 +30,10 @@
     [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
+    
+    [[LocationController getInstance] startLocation:^{
+        
+    }];
     
 }
 

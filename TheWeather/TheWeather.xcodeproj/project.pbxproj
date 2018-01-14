@@ -19,6 +19,8 @@
 		44929795200B388C00BAD666 /* GYZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4492978E200B388C00BAD666 /* GYZCity.m */; };
 		44929796200B388C00BAD666 /* GYZCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929790200B388C00BAD666 /* GYZCityGroupCell.m */; };
 		44929797200B388C00BAD666 /* GYZCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929792200B388C00BAD666 /* GYZCityHeaderView.m */; };
+		4492979A200B3DEA00BAD666 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929799200B3DEA00BAD666 /* LocationController.m */; };
+		4492979C200B3E1A00BAD666 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4492979B200B3E1A00BAD666 /* CoreLocation.framework */; };
 		5E4DE3AFA3850E0DF958F008 /* libPods-TheWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C772F22E1A2643B5871C51 /* libPods-TheWeather.a */; };
 		E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31320046A5F00CFFA52 /* MainViewController.m */; };
 		E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */; };
@@ -64,6 +66,9 @@
 		44929790200B388C00BAD666 /* GYZCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityGroupCell.m; sourceTree = "<group>"; };
 		44929791200B388C00BAD666 /* GYZCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityHeaderView.h; sourceTree = "<group>"; };
 		44929792200B388C00BAD666 /* GYZCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityHeaderView.m; sourceTree = "<group>"; };
+		44929798200B3DEA00BAD666 /* LocationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		44929799200B3DEA00BAD666 /* LocationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		4492979B200B3E1A00BAD666 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4EB7018D5FA456B64FA90360 /* Pods-TheWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		B852F896BE569D6E17EB3A98 /* Pods-TheWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.release.xcconfig"; sourceTree = "<group>"; };
 		E5BCF31220046A5F00CFFA52 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4492979C200B3E1A00BAD666 /* CoreLocation.framework in Frameworks */,
 				5E4DE3AFA3850E0DF958F008 /* libPods-TheWeather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +273,8 @@
 				E5BCF3302004953B00CFFA52 /* WeatherViewController.m */,
 				44929785200B31D600BAD666 /* CityViewController.h */,
 				44929786200B31D600BAD666 /* CityViewController.m */,
+				44929798200B3DEA00BAD666 /* LocationController.h */,
+				44929799200B3DEA00BAD666 /* LocationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,6 +354,7 @@
 		F60C868111B5D2997A8506EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4492979B200B3E1A00BAD666 /* CoreLocation.framework */,
 				16C772F22E1A2643B5871C51 /* libPods-TheWeather.a */,
 			);
 			name = Frameworks;
@@ -498,6 +507,7 @@
 				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
 				E5BCF3532007007A00CFFA52 /* CurrentWeatherInfo.m in Sources */,
 				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
+				4492979A200B3DEA00BAD666 /* LocationController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,
 				E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */,
 				44929795200B388C00BAD666 /* GYZCity.m in Sources */,
