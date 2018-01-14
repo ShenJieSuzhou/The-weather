@@ -13,6 +13,12 @@
 		442DB6AA1E8E27FA00724551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442DB6A81E8E27FA00724551 /* Main.storyboard */; };
 		442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442DB6AB1E8E27FB00724551 /* Assets.xcassets */; };
 		442DB6AF1E8E27FB00724551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442DB6AD1E8E27FB00724551 /* LaunchScreen.storyboard */; };
+		44929787200B31D600BAD666 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929786200B31D600BAD666 /* CityViewController.m */; };
+		44929793200B388C00BAD666 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44929789200B388C00BAD666 /* CityData.plist */; };
+		44929794200B388C00BAD666 /* GYZChooseCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4492978B200B388C00BAD666 /* GYZChooseCityController.m */; };
+		44929795200B388C00BAD666 /* GYZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4492978E200B388C00BAD666 /* GYZCity.m */; };
+		44929796200B388C00BAD666 /* GYZCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929790200B388C00BAD666 /* GYZCityGroupCell.m */; };
+		44929797200B388C00BAD666 /* GYZCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44929792200B388C00BAD666 /* GYZCityHeaderView.m */; };
 		5E4DE3AFA3850E0DF958F008 /* libPods-TheWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C772F22E1A2643B5871C51 /* libPods-TheWeather.a */; };
 		E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31320046A5F00CFFA52 /* MainViewController.m */; };
 		E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */; };
@@ -46,6 +52,18 @@
 		442DB6AB1E8E27FB00724551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		442DB6AE1E8E27FB00724551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		442DB6B01E8E27FB00724551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44929785200B31D600BAD666 /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		44929786200B31D600BAD666 /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		44929789200B388C00BAD666 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		4492978A200B388C00BAD666 /* GYZChooseCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZChooseCityController.h; sourceTree = "<group>"; };
+		4492978B200B388C00BAD666 /* GYZChooseCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZChooseCityController.m; sourceTree = "<group>"; };
+		4492978C200B388C00BAD666 /* GYZChooseCityDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZChooseCityDelegate.h; sourceTree = "<group>"; };
+		4492978D200B388C00BAD666 /* GYZCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCity.h; sourceTree = "<group>"; };
+		4492978E200B388C00BAD666 /* GYZCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCity.m; sourceTree = "<group>"; };
+		4492978F200B388C00BAD666 /* GYZCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityGroupCell.h; sourceTree = "<group>"; };
+		44929790200B388C00BAD666 /* GYZCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityGroupCell.m; sourceTree = "<group>"; };
+		44929791200B388C00BAD666 /* GYZCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityHeaderView.h; sourceTree = "<group>"; };
+		44929792200B388C00BAD666 /* GYZCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityHeaderView.m; sourceTree = "<group>"; };
 		4EB7018D5FA456B64FA90360 /* Pods-TheWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		B852F896BE569D6E17EB3A98 /* Pods-TheWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheWeather/Pods-TheWeather.release.xcconfig"; sourceTree = "<group>"; };
 		E5BCF31220046A5F00CFFA52 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -148,6 +166,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		44929788200B388C00BAD666 /* GYZChooseCity */ = {
+			isa = PBXGroup;
+			children = (
+				44929789200B388C00BAD666 /* CityData.plist */,
+				4492978A200B388C00BAD666 /* GYZChooseCityController.h */,
+				4492978B200B388C00BAD666 /* GYZChooseCityController.m */,
+				4492978C200B388C00BAD666 /* GYZChooseCityDelegate.h */,
+				4492978D200B388C00BAD666 /* GYZCity.h */,
+				4492978E200B388C00BAD666 /* GYZCity.m */,
+				4492978F200B388C00BAD666 /* GYZCityGroupCell.h */,
+				44929790200B388C00BAD666 /* GYZCityGroupCell.m */,
+				44929791200B388C00BAD666 /* GYZCityHeaderView.h */,
+				44929792200B388C00BAD666 /* GYZCityHeaderView.m */,
+			);
+			path = GYZChooseCity;
+			sourceTree = "<group>";
+		};
 		E5BCF31120046A3300CFFA52 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +244,7 @@
 		E5BCF3212004946100CFFA52 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				44929788200B388C00BAD666 /* GYZChooseCity */,
 				E5BCF3442005F41C00CFFA52 /* CustomCollectionView.h */,
 				E5BCF3452005F41C00CFFA52 /* CustomCollectionView.m */,
 				E5BCF3422005F41C00CFFA52 /* CustomCollectionViewCell.h */,
@@ -229,6 +265,8 @@
 			children = (
 				E5BCF32F2004953B00CFFA52 /* WeatherViewController.h */,
 				E5BCF3302004953B00CFFA52 /* WeatherViewController.m */,
+				44929785200B31D600BAD666 /* CityViewController.h */,
+				44929786200B31D600BAD666 /* CityViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,6 +418,7 @@
 				E5BCF35B200732A200CFFA52 /* CurrentWeatherViewCell.xib in Resources */,
 				442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */,
 				442DB6AA1E8E27FA00724551 /* Main.storyboard in Resources */,
+				44929793200B388C00BAD666 /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,8 +488,11 @@
 				E5BCF3502006FCD100CFFA52 /* TodayWeatherView.m in Sources */,
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
 				E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */,
+				44929797200B388C00BAD666 /* GYZCityHeaderView.m in Sources */,
 				E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */,
+				44929796200B388C00BAD666 /* GYZCityGroupCell.m in Sources */,
 				E5BCF356200700A700CFFA52 /* FutureWeatherInfo.m in Sources */,
+				44929787200B31D600BAD666 /* CityViewController.m in Sources */,
 				E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */,
 				E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */,
 				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
@@ -458,11 +500,13 @@
 				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,
 				E5BCF33E2005B5BA00CFFA52 /* MenuViewCell.m in Sources */,
+				44929795200B388C00BAD666 /* GYZCity.m in Sources */,
 				E5BCF3482005F41C00CFFA52 /* CustomCollectionViewCell.m in Sources */,
 				E5BCF3492005F41C00CFFA52 /* CustomCollectionView.m in Sources */,
 				E5BCF3372004BFCE00CFFA52 /* MenuViewController.m in Sources */,
 				E5BCF34A2005F41C00CFFA52 /* CustomFlowLayout.m in Sources */,
 				E5BCF3282004952B00CFFA52 /* NewsViewController.m in Sources */,
+				44929794200B388C00BAD666 /* GYZChooseCityController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "WeatherViewController.h"
-
+#import "GYZChooseCityController.h"
 
 @interface WeatherViewController ()
 
@@ -123,7 +123,27 @@
  * @brief 添加城市天气信息
  */
 - (void)addCityTempture:(id)sender{
-    
+    GYZChooseCityController *cityPickerVC = [[GYZChooseCityController alloc] init];
+    [cityPickerVC setDelegate:self];
+
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+        
+    }];
 }
 
+#pragma mark - GYZCityPickerDelegate
+- (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
+{
+//    [chooseCityBtn setTitle:city.cityName forState:UIControlStateNormal];
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void) cityPickerControllerDidCancel:(GYZChooseCityController *)chooseCityController
+{
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 @end

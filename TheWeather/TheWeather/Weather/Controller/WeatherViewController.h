@@ -10,8 +10,9 @@
 #import "BaseViewController.h"
 #import "MenuDelegate.h"
 #import "CustomCollectionView.h"
+#import "GYZChooseCityDelegate.h"
 
-@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate>
+@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate>
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *settingBtn;
