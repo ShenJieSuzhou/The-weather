@@ -69,9 +69,6 @@
     [self.windStrength setFrame:CGRectMake(60, 100, 40, 40)];
     [self.humidity setFrame:CGRectMake(100, 100, 40, 40)];
     [self.time setFrame:CGRectMake(self.frame.size.width - 100, 100, 100, 40)];
-    
-//    [self.horiSeparte setFrame:CGRectMake(0, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
-    
 }
 
 /*
