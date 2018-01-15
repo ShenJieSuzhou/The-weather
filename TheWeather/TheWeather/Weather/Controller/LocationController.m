@@ -9,6 +9,8 @@
 #import "LocationController.h"
 
 @implementation LocationController
+@synthesize locationManager = _locationManager;
+@synthesize mBlock = _mBlock;
 
 + (LocationController *)getInstance{
     static LocationController *_instance;
@@ -21,6 +23,7 @@
 }
 
 - (void)startLocation:(locationBlock)_block{
+    _mBlock = _block;
     if([CLLocationManager locationServicesEnabled]){
         
         if(!_locationManager){
@@ -30,7 +33,6 @@
             if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
                 [self.locationManager requestWhenInUseAuthorization];
                 [self.locationManager requestAlwaysAuthorization];
-                
             }
             
             //设置代理
@@ -70,12 +72,10 @@
             
             CLPlacemark* placemark = placemarks.firstObject;
             NSLog(@"placemark:%@",[[placemark addressDictionary] objectForKey:@"City"]);
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"你的位置" message:[[placemark addressDictionary] objectForKey:@"City"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil nil];
-//
-//            [alert show];
-            
+            NSString *cityname = [[placemark addressDictionary] objectForKey:@"City"];
+
+            _mBlock(cityname);
         }
-        
     }];
 }
 

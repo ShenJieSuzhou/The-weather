@@ -11,15 +11,17 @@
 #import "MenuDelegate.h"
 #import "CustomCollectionView.h"
 #import "GYZChooseCityDelegate.h"
+#import "LocationView.h"
 
 @interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate>
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *settingBtn;
-@property (strong, nonatomic) UIButton *addCityBtn;
+@property (strong, nonatomic) UIButton *shareBtn;
 @property (strong, nonatomic) id<MenusDelegate> delegate;
 @property (strong, nonatomic) UITapGestureRecognizer *guesture;
 @property (nonatomic, strong) CustomCollectionView *customWeatherView;
+@property (strong, nonatomic) LocationView *locationView;
 
 @property (strong, nonatomic) UIImageView *screenImage;
 

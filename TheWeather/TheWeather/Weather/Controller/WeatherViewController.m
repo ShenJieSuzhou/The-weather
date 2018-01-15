@@ -10,6 +10,7 @@
 #import "GYZChooseCityController.h"
 #import "LocationController.h"
 
+
 @interface WeatherViewController ()
 
 @end
@@ -18,22 +19,18 @@
 @synthesize guesture = _guesture;
 @synthesize customWeatherView = _customWeatherView;
 @synthesize screenImage = _screenImage;
-
+@synthesize locationView = _locationView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
     [self.view setBackgroundColor:[UIColor clearColor]];
-    [self requestWeatherInfo];
+    [self automaticLocation];
     [self initScreenImage];
     [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
-    
-    [[LocationController getInstance] startLocation:^{
-        
-    }];
     
 }
 
@@ -43,10 +40,21 @@
 }
 
 /*
+ *@brief 自动定位地理位置
+ */
+- (void)automaticLocation{
+    __weak typeof(self) weakSelf = self;
+    [[LocationController getInstance] startLocation:^(NSString *cityName) {
+        [weakSelf.locationView.locationTitle setText:cityName];
+        [weakSelf requestWeatherInfo:cityName];
+    }];
+}
+
+/*
  *@brief 请求天气数据
  */
-- (void)requestWeatherInfo{
-    
+- (void)requestWeatherInfo:(NSString *)city{
+    //转菊花
 }
 
 - (CustomCollectionView *)customWeatherView{
@@ -58,7 +66,7 @@
 }
 
 /*
- * @brief 初始化壁纸
+ * @brief 初始化壁纸（随机显示）
  */
 - (void)initScreenImage{
     self.screenImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Eiffel"]];
@@ -81,20 +89,26 @@
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 60)];
     [self.headerView setBackgroundColor:[UIColor clearColor]];
     
+    self.shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.shareBtn setFrame:CGRectMake(self.view.bounds.size.width - 40- 20, 20, 40, 40)];
+    [self.shareBtn setBackgroundImage:[UIImage imageNamed:@"icon-flyout-iphone"] forState:UIControlStateNormal];
+    [self.shareBtn setBackgroundColor:[UIColor clearColor]];
+    [self.shareBtn addTarget:self action:@selector(shareWeather:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.locationView = [[LocationView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 150)/2, 30, 150, 20)];
+    [self.locationView.locationTitle setText:@"正在定位"];
+    [self.locationView.addImage setImage:[UIImage imageNamed:@"editlocplus"]];
+    [self.locationView.locateImage setImage:[UIImage imageNamed:@"currentlocation"]];
+    
     self.settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.settingBtn setFrame:CGRectMake(20, 30, 50, 30)];
-    [self.settingBtn setTitle:@"设置" forState:UIControlStateNormal];
-    [self.settingBtn setBackgroundColor:[UIColor blueColor]];
+    [self.settingBtn setFrame:CGRectMake(20, 30, 20, 20)];
+    [self.settingBtn setBackgroundImage:[UIImage imageNamed:@"icon-moreinfo-ipad"] forState:UIControlStateNormal];
+    [self.settingBtn setBackgroundColor:[UIColor clearColor]];
     [self.settingBtn addTarget:self action:@selector(slideControllerView:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.addCityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.addCityBtn setFrame:CGRectMake(self.view.bounds.size.width - 50 - 30, 30, 50, 30)];
-    [self.addCityBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [self.addCityBtn setBackgroundColor:[UIColor blueColor]];
-    [self.addCityBtn addTarget:self action:@selector(addCityTempture:) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.headerView addSubview:self.settingBtn];
-    [self.headerView addSubview:self.addCityBtn];
+    [self.headerView addSubview:self.locationView];
+     [self.headerView addSubview:self.shareBtn];
     [self.view addSubview:self.headerView];
 }
 
@@ -134,6 +148,13 @@
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
         
     }];
+}
+
+/*
+ * @brief  分享天气
+ */
+- (void)shareWeather:(id)sender{
+    NSLog(@"分享");
 }
 
 #pragma mark - GYZCityPickerDelegate
