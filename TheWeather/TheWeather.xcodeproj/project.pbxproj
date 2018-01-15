@@ -41,6 +41,10 @@
 		E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF358200732A200CFFA52 /* CurrentWeatherViewCell.m */; };
 		E5BCF35B200732A200CFFA52 /* CurrentWeatherViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */; };
 		E5BCF35E200C4ECA00CFFA52 /* LocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF35D200C4ECA00CFFA52 /* LocationView.m */; };
+		E5BCF363200C7BDF00CFFA52 /* DailyForecastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF361200C7BDF00CFFA52 /* DailyForecastViewCell.m */; };
+		E5BCF364200C7BDF00CFFA52 /* DailyForecastViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF362200C7BDF00CFFA52 /* DailyForecastViewCell.xib */; };
+		E5BCF368200C89C300CFFA52 /* ForecastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF366200C89C300CFFA52 /* ForecastViewCell.m */; };
+		E5BCF369200C89C300CFFA52 /* ForecastViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF367200C89C300CFFA52 /* ForecastViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +114,12 @@
 		E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewCell.xib; sourceTree = "<group>"; };
 		E5BCF35C200C4ECA00CFFA52 /* LocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationView.h; sourceTree = "<group>"; };
 		E5BCF35D200C4ECA00CFFA52 /* LocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationView.m; sourceTree = "<group>"; };
+		E5BCF360200C7BDF00CFFA52 /* DailyForecastViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyForecastViewCell.h; sourceTree = "<group>"; };
+		E5BCF361200C7BDF00CFFA52 /* DailyForecastViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyForecastViewCell.m; sourceTree = "<group>"; };
+		E5BCF362200C7BDF00CFFA52 /* DailyForecastViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastViewCell.xib; sourceTree = "<group>"; };
+		E5BCF365200C89C300CFFA52 /* ForecastViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastViewCell.h; sourceTree = "<group>"; };
+		E5BCF366200C89C300CFFA52 /* ForecastViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewCell.m; sourceTree = "<group>"; };
+		E5BCF367200C89C300CFFA52 /* ForecastViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +263,7 @@
 		E5BCF3212004946100CFFA52 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5BCF35F200C7B5C00CFFA52 /* Forecase */,
 				44929788200B388C00BAD666 /* GYZChooseCity */,
 				E5BCF3442005F41C00CFFA52 /* CustomCollectionView.h */,
 				E5BCF3452005F41C00CFFA52 /* CustomCollectionView.m */,
@@ -347,6 +358,19 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E5BCF35F200C7B5C00CFFA52 /* Forecase */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCF360200C7BDF00CFFA52 /* DailyForecastViewCell.h */,
+				E5BCF361200C7BDF00CFFA52 /* DailyForecastViewCell.m */,
+				E5BCF362200C7BDF00CFFA52 /* DailyForecastViewCell.xib */,
+				E5BCF365200C89C300CFFA52 /* ForecastViewCell.h */,
+				E5BCF366200C89C300CFFA52 /* ForecastViewCell.m */,
+				E5BCF367200C89C300CFFA52 /* ForecastViewCell.xib */,
+			);
+			path = Forecase;
+			sourceTree = "<group>";
+		};
 		EBDE69FD644AA9012C5BE8A0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,7 +456,9 @@
 				E5BCF35B200732A200CFFA52 /* CurrentWeatherViewCell.xib in Resources */,
 				442DB6AC1E8E27FB00724551 /* Assets.xcassets in Resources */,
 				442DB6AA1E8E27FA00724551 /* Main.storyboard in Resources */,
+				E5BCF364200C7BDF00CFFA52 /* DailyForecastViewCell.xib in Resources */,
 				44929793200B388C00BAD666 /* CityData.plist in Resources */,
+				E5BCF369200C89C300CFFA52 /* ForecastViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				442DB6A71E8E27FA00724551 /* ViewController.m in Sources */,
+				E5BCF363200C7BDF00CFFA52 /* DailyForecastViewCell.m in Sources */,
 				E5BCF31C20048FFC00CFFA52 /* BaseViewController.m in Sources */,
 				E5BCF3502006FCD100CFFA52 /* TodayWeatherView.m in Sources */,
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
@@ -511,6 +538,7 @@
 				E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */,
 				E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */,
 				E5BCF3532007007A00CFFA52 /* CurrentWeatherInfo.m in Sources */,
+				E5BCF368200C89C300CFFA52 /* ForecastViewCell.m in Sources */,
 				E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */,
 				4492979A200B3DEA00BAD666 /* LocationController.m in Sources */,
 				442DB6A11E8E27F900724551 /* main.m in Sources */,

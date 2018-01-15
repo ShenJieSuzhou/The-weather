@@ -31,7 +31,6 @@
     [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,7 +159,6 @@
 #pragma mark - GYZCityPickerDelegate
 - (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
 {
-//    [chooseCityBtn setTitle:city.cityName forState:UIControlStateNormal];
     [chooseCityController dismissViewControllerAnimated:YES completion:^{
         
     }];
