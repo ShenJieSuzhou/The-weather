@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TheWeather/Weather/View/Forecase/ForecastViewCell.m"
-            timestampString = "537697643.70979"
+            filePath = "TheWeather/Weather/Controller/WeatherViewController.m"
+            timestampString = "537783736.002581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "-setSelected:animated:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-requestWeatherInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

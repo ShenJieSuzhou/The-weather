@@ -12,6 +12,8 @@
 #import "GlobalDefine.h"
 #import "CurrentWeatherViewCell.h"
 #import "DailyForecastViewCell.h"
+#import "WeatherDetailViewCell.h"
+#import "Masonry.h"
 
 @implementation CustomCollectionView
 @synthesize delegate = _delegate;
@@ -51,6 +53,10 @@
                                     bundle: [NSBundle mainBundle]];
         [_collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell"];
         
+        UINib *indexWeatherNib = [UINib nibWithNibName:@"WeatherDetailViewCell"
+                                    bundle: [NSBundle mainBundle]];
+        [_collectionView registerNib:indexWeatherNib forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell"];
+        
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
     }
@@ -66,7 +72,13 @@
  * @brief 设置 HeadCollectionViewCell frame 大小
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    
     return CGSizeMake(self.bounds.size.width, self.bounds.size.height - 60); // 设置headerView的宽高
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    
+    return CGSizeMake(self.bounds.size.width, 400);
 }
 
 #pragma mark - collectionViewDelegate
@@ -86,22 +98,29 @@
     if([[self delegate] respondsToSelector:@selector(collectionView:didSelectItemAtIndex:)]){
         [_delegate collectionView:self didSelectItemAtIndex:indexPath.item];
     }
-    
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     DailyForecastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DailyForecastViewCell" forIndexPath:indexPath];
-
-//    [cell setFrame:CGRectMake(0, self.bounds.size.height, self.bounds.size.width, self.bounds.size.height)];
-
+    
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
 
-    CurrentWeatherViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
-
-    return cell;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+         CurrentWeatherViewCell *headerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
+        
+        return headerCell;
+    }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
+        WeatherDetailViewCell *footerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell" forIndexPath:indexPath];
+        return footerCell;
+    }
+   
+    return nil;
 }
+
+
 
 @end

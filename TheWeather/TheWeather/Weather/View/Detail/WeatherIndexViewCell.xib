@@ -34,6 +34,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="index" destination="Nie-SE-JLf" id="adl-Xr-esH"/>
                 <outlet property="indexTitle" destination="DTV-L0-Mgg" id="e5R-EG-ZpF"/>

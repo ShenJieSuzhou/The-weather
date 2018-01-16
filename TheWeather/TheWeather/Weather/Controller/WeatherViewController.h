@@ -12,6 +12,8 @@
 #import "CustomCollectionView.h"
 #import "GYZChooseCityDelegate.h"
 #import "LocationView.h"
+#import "CurrentWeatherInfo.h"
+#import "FutureWeatherInfo.h"
 
 @interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate>
 
@@ -22,6 +24,8 @@
 @property (strong, nonatomic) UITapGestureRecognizer *guesture;
 @property (nonatomic, strong) CustomCollectionView *customWeatherView;
 @property (strong, nonatomic) LocationView *locationView;
+@property (strong, nonatomic) CurrentWeatherInfo *currentWeatherInfo;
+@property (strong, nonatomic) FutureWeatherInfo *futureWeatherInfo;
 
 @property (strong, nonatomic) UIImageView *screenImage;
 

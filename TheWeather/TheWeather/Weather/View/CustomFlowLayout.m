@@ -26,7 +26,6 @@
     // 设置item尺寸
     CGFloat itemWH = self.collectionView.frame.size.width;
     self.itemSize = CGSizeMake(itemWH, itemWH);
-//    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.pagingEnabled = YES;
     self.minimumLineSpacing = 0;
     self.minimumInteritemSpacing = 0;

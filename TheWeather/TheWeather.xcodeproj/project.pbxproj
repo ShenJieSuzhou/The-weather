@@ -49,6 +49,8 @@
 		E5BCF36E200CA76400CFFA52 /* WeatherDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF36C200CA76400CFFA52 /* WeatherDetailViewCell.xib */; };
 		E5BCF374200CAB1700CFFA52 /* WeatherIndexViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF372200CAB1700CFFA52 /* WeatherIndexViewCell.m */; };
 		E5BCF375200CAB1700CFFA52 /* WeatherIndexViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF373200CAB1700CFFA52 /* WeatherIndexViewCell.xib */; };
+		E5FFE4A5200DD9FE00F42D1D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FFE4A4200DD9FE00F42D1D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5FFE4A8200DF48E00F42D1D /* ConstantIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FFE4A7200DF48E00F42D1D /* ConstantIndex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,10 @@
 		E5BCF371200CAB1700CFFA52 /* WeatherIndexViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherIndexViewCell.h; sourceTree = "<group>"; };
 		E5BCF372200CAB1700CFFA52 /* WeatherIndexViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherIndexViewCell.m; sourceTree = "<group>"; };
 		E5BCF373200CAB1700CFFA52 /* WeatherIndexViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherIndexViewCell.xib; sourceTree = "<group>"; };
+		E5FFE4A3200DD9FE00F42D1D /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		E5FFE4A4200DD9FE00F42D1D /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		E5FFE4A6200DF48E00F42D1D /* ConstantIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantIndex.h; sourceTree = "<group>"; };
+		E5FFE4A7200DF48E00F42D1D /* ConstantIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConstantIndex.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +272,8 @@
 				E5BCF3522007007A00CFFA52 /* CurrentWeatherInfo.m */,
 				E5BCF354200700A700CFFA52 /* FutureWeatherInfo.h */,
 				E5BCF355200700A700CFFA52 /* FutureWeatherInfo.m */,
+				E5FFE4A6200DF48E00F42D1D /* ConstantIndex.h */,
+				E5FFE4A7200DF48E00F42D1D /* ConstantIndex.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 		E5BCF33A2005AF5500CFFA52 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E5FFE4A2200DD9FE00F42D1D /* JSONKIT */,
 				E5BCF33B2005AF6A00CFFA52 /* GlobalDefine.h */,
 			);
 			path = Utils;
@@ -401,6 +410,15 @@
 				E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */,
 			);
 			path = Current;
+			sourceTree = "<group>";
+		};
+		E5FFE4A2200DD9FE00F42D1D /* JSONKIT */ = {
+			isa = PBXGroup;
+			children = (
+				E5FFE4A3200DD9FE00F42D1D /* JSONKit.h */,
+				E5FFE4A4200DD9FE00F42D1D /* JSONKit.m */,
+			);
+			path = JSONKIT;
 			sourceTree = "<group>";
 		};
 		EBDE69FD644AA9012C5BE8A0 /* Pods */ = {
@@ -561,6 +579,7 @@
 				442DB6A71E8E27FA00724551 /* ViewController.m in Sources */,
 				E5BCF363200C7BDF00CFFA52 /* DailyForecastViewCell.m in Sources */,
 				E5BCF31C20048FFC00CFFA52 /* BaseViewController.m in Sources */,
+				E5FFE4A5200DD9FE00F42D1D /* JSONKit.m in Sources */,
 				E5BCF3502006FCD100CFFA52 /* TodayWeatherView.m in Sources */,
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
 				E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */,
@@ -568,6 +587,7 @@
 				E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */,
 				44929796200B388C00BAD666 /* GYZCityGroupCell.m in Sources */,
 				E5BCF356200700A700CFFA52 /* FutureWeatherInfo.m in Sources */,
+				E5FFE4A8200DF48E00F42D1D /* ConstantIndex.m in Sources */,
 				44929787200B31D600BAD666 /* CityViewController.m in Sources */,
 				E5BCF3342004B25500CFFA52 /* RootViewController.m in Sources */,
 				E5BCF3312004953B00CFFA52 /* WeatherViewController.m in Sources */,

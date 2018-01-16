@@ -9,6 +9,9 @@
 #import "WeatherViewController.h"
 #import "GYZChooseCityController.h"
 #import "LocationController.h"
+#import <AFNetworking/AFURLRequestSerialization.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import "JSONKit.h"
 
 
 @interface WeatherViewController ()
@@ -20,6 +23,8 @@
 @synthesize customWeatherView = _customWeatherView;
 @synthesize screenImage = _screenImage;
 @synthesize locationView = _locationView;
+@synthesize currentWeatherInfo = _currentWeatherInfo;
+@synthesize futureWeatherInfo = _futureWeatherInfo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +59,26 @@
  */
 - (void)requestWeatherInfo:(NSString *)city{
     //转菊花
+    __weak typeof(self) weakSelf = self;
+    
+    NSString *URLString = @"http://v.juhe.cn/weather/index";
+    NSDictionary *parameters = @{@"cityname": city, @"key": @"6a307cf1b884c41f6d3abe0c21f63469"};
+   
+    //初始化manager
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *weatherData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
+        
+        //解析天气数据
+        [weakSelf paraseWeatherData:weatherData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //提示网络请求失败，检查网络
+        NSLog(@"请求失败");
+    }];
 }
 
 - (CustomCollectionView *)customWeatherView{
@@ -72,6 +97,39 @@
     self.screenImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.screenImage setFrame:self.view.bounds];
     [self.view addSubview:self.screenImage];
+}
+
+/*
+ * @brief 解析天气数据
+ */
+- (void)paraseWeatherData:(NSDictionary *)weather{
+    NSDictionary *result = [weather objectForKey:@"result"];
+    NSDictionary *sk = [result objectForKey:@"sk"];
+    NSDictionary *today = [result objectForKey:@"today"];
+    NSDictionary *future = [result objectForKey:@"future"];
+    
+    //初始化未来几天天气
+    [self initForecastWeather:future];
+    //初始化当前的天气
+    [self initCurrentWeather:today withSK:sk];
+}
+
+/*
+ * @brief 初始化当前天气
+ */
+- (void)initCurrentWeather:(NSDictionary *)weather withSK:(NSDictionary *)sk{
+    self.currentWeatherInfo = [[CurrentWeatherInfo alloc] init];
+    [self.currentWeatherInfo initWeatherWithSK:sk];
+    [self.currentWeatherInfo initWithWeatherInfo:weather];
+}
+
+/*
+ *@brief 初始化未来几天天气
+ */
+- (void)initForecastWeather:(NSDictionary *)weather{
+    NSArray *futureArray = [weather objectForKey:@"future"];
+    self.futureWeatherInfo = [[FutureWeatherInfo alloc] init];
+    [self.futureWeatherInfo initWithWeatherInfo:futureArray];
 }
 
 /*
