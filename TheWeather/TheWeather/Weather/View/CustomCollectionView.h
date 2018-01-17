@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CurrentWeatherInfo.h"
+#import "FutureWeatherInfo.h"
 
 @protocol CustomCollectionViewDelegate;
 @interface CustomCollectionView : UIView<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -17,6 +19,10 @@
 @property (strong,nonatomic) NSMutableArray *itemArray;
 //UICollectionView
 @property (strong, nonatomic) UICollectionView *collectionView;
+
+@property (strong, nonatomic) CurrentWeatherInfo *currentWeather;
+
+@property (strong, nonatomic) FutureWeatherInfo *futureWeather;
 
 @end
 

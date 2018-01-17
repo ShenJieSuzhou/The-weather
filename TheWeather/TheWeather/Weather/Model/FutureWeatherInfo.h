@@ -23,6 +23,6 @@
 @interface FutureWeatherInfo : NSObject
 @property (strong, nonatomic) NSMutableArray *weatherArray;
 
-- (void)initWithWeatherInfo:(NSArray *)array;
+- (void)initWithWeatherInfo:(NSDictionary *)futureDic;
 
 @end

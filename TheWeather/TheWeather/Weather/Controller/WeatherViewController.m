@@ -33,7 +33,6 @@
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self automaticLocation];
     [self initScreenImage];
-    [self initWeatherVisibleView];
     [self initHerderView];
     [self addGuestureCtrl];
 }
@@ -48,7 +47,8 @@
  */
 - (void)automaticLocation{
     __weak typeof(self) weakSelf = self;
-    [[LocationController getInstance] startLocation:^(NSString *cityName) {
+
+    [[LocationController getInstance] startLocation:self block:^(NSString *cityName) {
         [weakSelf.locationView.locationTitle setText:cityName];
         [weakSelf requestWeatherInfo:cityName];
     }];
@@ -112,6 +112,8 @@
     [self initForecastWeather:future];
     //初始化当前的天气
     [self initCurrentWeather:today withSK:sk];
+    
+    [self initWeatherVisibleView];
 }
 
 /*
@@ -127,15 +129,17 @@
  *@brief 初始化未来几天天气
  */
 - (void)initForecastWeather:(NSDictionary *)weather{
-    NSArray *futureArray = [weather objectForKey:@"future"];
     self.futureWeatherInfo = [[FutureWeatherInfo alloc] init];
-    [self.futureWeatherInfo initWithWeatherInfo:futureArray];
+    [self.futureWeatherInfo initWithWeatherInfo:weather];
 }
 
 /*
  *@brief 初始化天气可视化视图
  */
 - (void)initWeatherVisibleView{
+    [[self customWeatherView] setCurrentWeather:self.currentWeatherInfo];
+    [[self customWeatherView] setFutureWeather:self.futureWeatherInfo];
+    
     [self.view addSubview:[self customWeatherView]];
 }
 
@@ -203,7 +207,7 @@
     [cityPickerVC setDelegate:self];
 
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
-        
+
     }];
 }
 
@@ -228,4 +232,6 @@
         
     }];
 }
+
+
 @end

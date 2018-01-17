@@ -15,8 +15,11 @@
 #import "WeatherDetailViewCell.h"
 #import "Masonry.h"
 
+
 @implementation CustomCollectionView
 @synthesize delegate = _delegate;
+@synthesize currentWeather = _currentWeather;
+@synthesize futureWeather = _futureWeather;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -68,6 +71,21 @@
     _itemArray = [itemArray copy];
 }
 
+- (void)setFutureWeather:(FutureWeatherInfo *)futureWeather{
+    if(!futureWeather){
+        return;
+    }
+    
+    _futureWeather = futureWeather;
+}
+
+- (void)setCurrentWeather:(CurrentWeatherInfo *)currentWeather{
+    if(!currentWeather){
+        return;
+    }
+    
+    _currentWeather = currentWeather;
+}
 /*
  * @brief 设置 HeadCollectionViewCell frame 大小
  */
@@ -112,9 +130,30 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
          CurrentWeatherViewCell *headerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
         
+        //加载数据
+        [headerCell.tempture setText:self.currentWeather.tempture];
+        [headerCell.weather setText:self.currentWeather.weather];
+        [headerCell.windOritation setText:self.currentWeather.windDirection];
+        [headerCell.windStrength setText:self.currentWeather.windStrength];
+        [headerCell.humidity setText:self.currentWeather.humidity];
+        [headerCell.time setText:self.currentWeather.time];
+        
+        WeatherInfo *today = [self.futureWeather.weatherArray objectAtIndex:0];
+        WeatherInfo *tommorrow = [self.futureWeather.weatherArray objectAtIndex:1];
+        [headerCell.range1 setText:today.temperature];
+        [headerCell.weather1 setText:today.weather];
+        
+        [headerCell.range2 setText:tommorrow.temperature];
+        [headerCell.weather2 setText:tommorrow.weather];
+        
         return headerCell;
+        
     }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
         WeatherDetailViewCell *footerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell" forIndexPath:indexPath];
+        
+        
+        
+        
         return footerCell;
     }
    

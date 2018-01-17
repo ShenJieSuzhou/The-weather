@@ -29,4 +29,7 @@
 
 @property (strong, nonatomic) UIImageView *screenImage;
 
+
+
+
 @end

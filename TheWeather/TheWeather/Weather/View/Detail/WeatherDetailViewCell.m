@@ -12,6 +12,7 @@
 @implementation WeatherDetailViewCell
 
 @synthesize indexTableView = _indexTableView;
+@synthesize currentWeather = _currentWeather;
 
 - (void)awakeFromNib {
     [super awakeFromNib];

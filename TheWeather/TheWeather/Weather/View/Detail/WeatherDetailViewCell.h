@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CurrentWeatherInfo.h"
 
 @interface WeatherDetailViewCell : UICollectionViewCell<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *indexTableView;
+@property (strong, nonatomic) CurrentWeatherInfo *currentWeather;
+
 @end
