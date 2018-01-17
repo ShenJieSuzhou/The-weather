@@ -8,6 +8,7 @@
 
 #import "DailyForecastViewCell.h"
 #import "ForecastViewCell.h"
+#import "FutureWeatherInfo.h"
 
 @implementation DailyForecastViewCell
 @synthesize forecastArray = _forecastArray;
@@ -31,8 +32,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ForecastViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ForecastViewCell"];
-    
     [cell setBackgroundColor:[UIColor clearColor]];
+    
+    WeatherInfo *weather = [self.forecastArray objectAtIndex:indexPath.row];
+    [cell.date setText:weather.week];
+    [cell.weather setText:weather.weather];
+    [cell.range setText:weather.temperature];
+    
     return cell;
 }
 

@@ -119,8 +119,9 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     DailyForecastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DailyForecastViewCell" forIndexPath:indexPath];
+    
+    [cell setForecastArray:self.futureWeather.weatherArray];
     
     return cell;
 }

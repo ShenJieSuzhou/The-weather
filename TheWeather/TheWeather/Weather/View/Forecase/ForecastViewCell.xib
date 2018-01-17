@@ -38,7 +38,7 @@
                         <color key="backgroundColor" red="0.11283553559999999" green="1" blue="0.25702931820000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-2℃~6℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg4-sA-qNC">
-                        <rect key="frame" x="317" y="14" width="77" height="20.5"/>
+                        <rect key="frame" x="296" y="14" width="98" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,7 +48,13 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="48" y="69.5"/>
+            <connections>
+                <outlet property="date" destination="gJ6-Uj-F4Y" id="kcj-rF-xTt"/>
+                <outlet property="icon" destination="Lpk-Fo-JIK" id="zOZ-Hl-gXh"/>
+                <outlet property="range" destination="Qg4-sA-qNC" id="vAl-W8-tyo"/>
+                <outlet property="weather" destination="4Zc-fu-AyR" id="yW0-qE-VQ2"/>
+            </connections>
+            <point key="canvasLocation" x="48" y="69"/>
         </tableViewCell>
     </objects>
 </document>

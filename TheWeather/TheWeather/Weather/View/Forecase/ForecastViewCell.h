@@ -10,4 +10,12 @@
 
 @interface ForecastViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *date;
+
+@property (weak, nonatomic) IBOutlet UILabel *weather;
+
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+
+@property (weak, nonatomic) IBOutlet UILabel *range;
+
 @end
