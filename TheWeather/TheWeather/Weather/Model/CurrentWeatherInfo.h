@@ -24,6 +24,8 @@
 @property (strong, nonatomic) NSString *travelIndex;
 @property (strong, nonatomic) NSString *exerciseIndex;
 
+@property (strong, nonatomic) NSMutableArray *indexArray;
+
 
 - (void)initWeatherWithSK:(NSDictionary *)sk;
 

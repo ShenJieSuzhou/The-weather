@@ -14,6 +14,7 @@
 #import "DailyForecastViewCell.h"
 #import "WeatherDetailViewCell.h"
 #import "Masonry.h"
+#import "WeatherIconIdentifier.h"
 
 
 @implementation CustomCollectionView
@@ -132,28 +133,28 @@
          CurrentWeatherViewCell *headerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CurrentWeatherViewCell" forIndexPath:indexPath];
         
         //加载数据
-        [headerCell.tempture setText:self.currentWeather.tempture];
+        [headerCell.tempture setText:[NSString stringWithFormat:@"%@℃",self.currentWeather.tempture]];
         [headerCell.weather setText:self.currentWeather.weather];
         [headerCell.windOritation setText:self.currentWeather.windDirection];
         [headerCell.windStrength setText:self.currentWeather.windStrength];
-        [headerCell.humidity setText:self.currentWeather.humidity];
-        [headerCell.time setText:self.currentWeather.time];
+        [headerCell.humidity setText:[NSString stringWithFormat:@"湿度:%@",self.currentWeather.humidity]];
+        [headerCell.time setText:[NSString stringWithFormat:@"%@发布",self.currentWeather.time]];
         
         WeatherInfo *today = [self.futureWeather.weatherArray objectAtIndex:0];
         WeatherInfo *tommorrow = [self.futureWeather.weatherArray objectAtIndex:1];
         [headerCell.range1 setText:today.temperature];
         [headerCell.weather1 setText:today.weather];
+        [headerCell.icon1 setImage:[UIImage imageNamed:[[WeatherIconIdentifier getInstance] requestWeatherIcon:today.weather]]];
         
         [headerCell.range2 setText:tommorrow.temperature];
         [headerCell.weather2 setText:tommorrow.weather];
-        
+        [headerCell.icon2 setImage:[UIImage imageNamed:[[WeatherIconIdentifier getInstance] requestWeatherIcon:tommorrow.weather]]];
         return headerCell;
         
     }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
         WeatherDetailViewCell *footerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell" forIndexPath:indexPath];
         
-        
-        
+        [footerCell setCurrentWeather:self.currentWeather];
         
         return footerCell;
     }

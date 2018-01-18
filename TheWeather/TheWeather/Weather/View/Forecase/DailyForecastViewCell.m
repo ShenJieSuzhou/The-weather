@@ -9,6 +9,7 @@
 #import "DailyForecastViewCell.h"
 #import "ForecastViewCell.h"
 #import "FutureWeatherInfo.h"
+#import "WeatherIconIdentifier.h"
 
 @implementation DailyForecastViewCell
 @synthesize forecastArray = _forecastArray;
@@ -38,6 +39,8 @@
     [cell.date setText:weather.week];
     [cell.weather setText:weather.weather];
     [cell.range setText:weather.temperature];
+    [cell.icon setImage:[UIImage imageNamed:[[WeatherIconIdentifier getInstance] requestWeatherIcon:weather.weather]]];
+    
     
     return cell;
 }

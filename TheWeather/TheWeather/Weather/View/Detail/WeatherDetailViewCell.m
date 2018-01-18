@@ -30,10 +30,17 @@
 
 }
 
+- (void)setCurrentWeather:(CurrentWeatherInfo *)currentWeather{
+    if(!currentWeather){
+        return;
+    }
+    
+    _currentWeather = currentWeather;
+}
+
 #pragma mark -tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    int rows = 5;
-    return rows;
+    return [_currentWeather.indexArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -41,6 +48,10 @@
     if (!cell) {
          cell = (WeatherIndexViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"WeatherIndexViewCell" owner:self options:nil] lastObject];
     }
+    
+    NSDictionary *index = [self.currentWeather.indexArray objectAtIndex:indexPath.row];
+    [cell.indexTitle setText:[index objectForKey:@"index"]];
+    [cell.index setText:[index objectForKey:@"value"]];
     
     return cell;
 }
@@ -72,7 +83,8 @@
     UILabel *headviewTitle = [[UILabel alloc] init];
     [headView addSubview:headviewTitle];
     
-    NSString *headTitle = @"天气冷，建议着棉服、羽绒服、皮夹克加羊毛衫等冬季服装。年老体弱者宜着厚棉衣、冬大衣或厚羽绒服。";
+    //穿衣建议
+    NSString *headTitle = self.currentWeather.dressingAdvice;
     [headviewTitle setFrame:CGRectMake(20, 10, tableView.frame.size.width - 40, 40)];
     [headviewTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
     [headviewTitle setTextColor:[UIColor whiteColor]];
