@@ -29,6 +29,8 @@
     self.collectionView.pagingEnabled = YES;
     self.minimumLineSpacing = 0;
     self.minimumInteritemSpacing = 0;
+    self.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
+
 }
 
 @end

@@ -101,7 +101,6 @@
 }
 
 #pragma mark - collectionViewDelegate
-
 //有多少的分组
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -137,7 +136,7 @@
         [headerCell.weather setText:self.currentWeather.weather];
         [headerCell.windOritation setText:self.currentWeather.windDirection];
         [headerCell.windStrength setText:self.currentWeather.windStrength];
-        [headerCell.humidity setText:[NSString stringWithFormat:@"湿度:%@",self.currentWeather.humidity]];
+        [headerCell.humidity setText:self.currentWeather.humidity];
         [headerCell.time setText:[NSString stringWithFormat:@"%@发布",self.currentWeather.time]];
         
         WeatherInfo *today = [self.futureWeather.weatherArray objectAtIndex:0];
@@ -155,7 +154,6 @@
         WeatherDetailViewCell *footerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell" forIndexPath:indexPath];
         
         [footerCell setCurrentWeather:self.currentWeather];
-        
         return footerCell;
     }
    

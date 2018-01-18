@@ -14,8 +14,9 @@
 #import "LocationView.h"
 #import "CurrentWeatherInfo.h"
 #import "FutureWeatherInfo.h"
+#import "XMLUtil.h"
 
-@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate>
+@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,NSXMLParserDelegate>
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *settingBtn;
@@ -26,6 +27,8 @@
 @property (strong, nonatomic) LocationView *locationView;
 @property (strong, nonatomic) CurrentWeatherInfo *currentWeatherInfo;
 @property (strong, nonatomic) FutureWeatherInfo *futureWeatherInfo;
+@property (strong, nonatomic) NSTimer *freshTimer;
+@property (nonatomic, strong) XMLUtil *xmlUtil;
 
 @property (strong, nonatomic) UIImageView *screenImage;
 

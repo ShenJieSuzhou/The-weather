@@ -12,7 +12,8 @@
 #import <AFNetworking/AFURLRequestSerialization.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "JSONKit.h"
-
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface WeatherViewController ()
 
@@ -25,17 +26,41 @@
 @synthesize locationView = _locationView;
 @synthesize currentWeatherInfo = _currentWeatherInfo;
 @synthesize futureWeatherInfo = _futureWeatherInfo;
+@synthesize freshTimer = _freshTimer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
     [self.view setBackgroundColor:[UIColor clearColor]];
+    
+    //初始化数据
+    [self initLocationBingAndWeather];
+}
+
+- (CustomCollectionView *)customWeatherView{
+    if(!_customWeatherView){
+        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    }
+    
+    return _customWeatherView;
+}
+
+/*
+ * @brief 初始化定位，壁纸以及天气数据信息
+ */
+- (void)initLocationBingAndWeather{
+    //初始化数据
     [self automaticLocation];
     [self initScreenImage];
     [self initHerderView];
     [self addGuestureCtrl];
+    
+    //添加一个定时器，每一个小时刷新一遍数据
+    _freshTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(freshData) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_freshTimer forMode:NSDefaultRunLoopMode];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -81,23 +106,58 @@
     }];
 }
 
-- (CustomCollectionView *)customWeatherView{
-    if(!_customWeatherView){
-        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    }
-    
-    return _customWeatherView;
-}
-
 /*
- * @brief 初始化壁纸（随机显示）
+ * @brief 获取bing每日壁纸
  */
 - (void)initScreenImage{
-    self.screenImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Eiffel"]];
+    
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+//
+//    NSURL *URL = [NSURL URLWithString:@"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1"];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+//
+//    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//        if (error) {
+//            NSLog(@"请求失败");
+//            NSLog(@"Error: %@", error);
+//        } else {
+//            NSLog(@"%@ %@", response, responseObject);
+//        }
+//    }];
+//
+//    [dataTask resume];
+    self.screenImage = [[UIImageView alloc] init];
     self.screenImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.screenImage setFrame:self.view.bounds];
     [self.view addSubview:self.screenImage];
+    
+    __weak typeof(self) weakSelf = self;
+    _xmlUtil = [[XMLUtil alloc] init];
+    
+    NSString *URLString = @"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1";
+    //初始化manager
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:URLString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [weakSelf.xmlUtil parse:responseObject block:^(NSString *imageName) {
+            NSString *url = [NSString stringWithFormat:@"http://s.cn.bing.net/%@", imageName];
+//            sd_setImageWithURL:[NSURL URLWithString:url2] placeholderImage:[UIImage imageNamed:@"default_icon"] options:SDWebImageProgressiveDownload
+//            weakSelf.screenImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Eiffel"]];
+
+            [weakSelf.screenImage sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"Eiffel"] options:SDWebImageProgressiveDownload];
+        }];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //提示网络请求失败，检查网络
+        NSLog(@"请求失败");
+    }];
+    
+    
+
 }
+
 
 /*
  * @brief 解析天气数据
@@ -216,6 +276,14 @@
  */
 - (void)shareWeather:(id)sender{
     NSLog(@"分享");
+}
+
+#pragma mark - freshData
+- (void)freshData{
+    //刷新地理位置
+    [self automaticLocation];
+    //刷新壁纸
+    [self initScreenImage];
 }
 
 #pragma mark - GYZCityPickerDelegate
