@@ -26,19 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-//    self.closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [self.closeBtn setFrame:CGRectMake(200, 50, 50, 50)];
-//    [self.closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
-//    [self.closeBtn setBackgroundColor:[UIColor blueColor]];
-//    [self.closeBtn addTarget:self action:@selector(closeTheMenus:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:self.closeBtn];
-    
     // 添加监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCityCallBack:) name:CITYNAME_CALLBACK object:nil];
     
     //初始化 “城市”
-    self.tableDataArray = [[NSMutableArray alloc] init];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"City" ofType:@"plist"];
+    self.tableDataArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     
     //初始化 “工具” 菜单
     self.settingArray = [[NSMutableArray alloc] initWithObjects:@"设置", @"意见和建议", @"给此应用程序打分", nil];
@@ -210,7 +203,7 @@
     ////删除数组中的对应数据,注意list 要是可变的集合才能够进行删除或新增操作
     [_tableDataArray removeObjectAtIndex:indexPath.row];
     
-    //tableView刷新方式2    设置tableView带动画效果 删除数据
+    //tableView刷新 设置tableView带动画效果 删除数据
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
     
     //取消编辑状态
@@ -221,10 +214,19 @@
 #pragma -mark notification
 - (void)addCityCallBack:(NSNotification *)notification {
     NSString *cityname = (NSString *)notification.object;
-    [self.tableDataArray addObject:cityname];
+    if([self.tableDataArray containsObject:cityname]){
+        return;
+    }
     
     //刷新
+    [self.tableDataArray addObject:cityname];
     [_menuTableView reloadData];
+    
+    //写入文件
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"City" ofType:@"plist"];
+    if([self.tableDataArray writeToFile:filePath atomically:YES]){
+        NSLog(@"写入失败");
+    }
 }
 
 @end
