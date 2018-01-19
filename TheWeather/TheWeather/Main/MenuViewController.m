@@ -44,7 +44,7 @@
     self.settingArray = [[NSMutableArray alloc] initWithObjects:@"设置", @"意见和建议", @"给此应用程序打分", nil];
     
     //添加菜单视图
-    _menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    _menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300, self.view.frame.size.height) style:UITableViewStyleGrouped];
     _menuTableView.delegate = self;
     _menuTableView.dataSource = self;
     [_menuTableView setBackgroundColor:RGB(220, 220, 220)];
@@ -69,7 +69,6 @@
 
 
 #pragma mark -tableViewDataSource
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //根据 json 模版 决定每个 section 要显示几行数据
     int tid = (int)section;
@@ -90,43 +89,45 @@
     /*
      *  default cell pattern
      */
-    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
     if(indexPath.section == 0){
-        MenuViewCell *productCell = [tableView dequeueReusableCellWithIdentifier:@"loginmenucell"];
-        if(!productCell){
-            productCell = [[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loginmenucell"];
+        UITableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:@"loginmenucell"];
+        if(!loginCell){
+            loginCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loginmenucell"];
         }
-    
-         [productCell.textLabel1 setText:@"登录"];
         
-        return productCell;
+        [loginCell setFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        [loginCell.textLabel setText:@"登录/注册"];
+        [loginCell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
+        [loginCell.imageView setImage:[UIImage imageNamed:@"Dark-Sidebar-Identity-Anonymous-Signed-In"]];
+        return loginCell;
         
     }else if(indexPath.section == 1){
-        MenuViewCell *productCell = [tableView dequeueReusableCellWithIdentifier:@"citymenucell"];
-        if(!productCell){
-            productCell = [[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"citymenucell"];
+         UITableViewCell *cityCell = [tableView dequeueReusableCellWithIdentifier:@"citymenucell"];
+        if(!cityCell){
+            cityCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"citymenucell"];
         }
-        
+        [cityCell setFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
         NSString *cityName = [_tableDataArray objectAtIndex:indexPath.row];
-        [productCell.textLabel1 setText:cityName];
+        [cityCell.textLabel setText:cityName];
+        [cityCell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
         
-        return productCell;
+        return cityCell;
     }else if(indexPath.section == 2){
         MenuViewCell *productCell = [tableView dequeueReusableCellWithIdentifier:@"toolmenucell"];
         if(!productCell){
             productCell = [[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"toolmenucell"];
         }
-        
+        [productCell setFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
         NSString *settingName = [_settingArray objectAtIndex:indexPath.row];
         [productCell.textLabel1 setText:settingName];
-        
+        [productCell.textLabel1 setFont:[UIFont systemFontOfSize:15.0f]];
         return productCell;
     }
     
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
     return cell;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -134,8 +135,6 @@
 }
 
 #pragma mark -tableViewDelegate
-
-// Variable height support
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
@@ -167,21 +166,64 @@
     }
     
     NSString *headTitle = @"工具";
-    [headviewTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
+    [headviewTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
     [headviewTitle setFrame:CGRectMake(20, 12, 80, 20)];
     [headviewTitle setText:headTitle];
     return headView;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 }
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:
+(NSIndexPath *)indexPath{
+    return @"删除";
+}
+
+//设置进入编辑状态时，Cell不会缩进
+- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+// UITableViewDataSource协议中定义的方法。该方法的返回值决定某行是否可编辑
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 || indexPath.section == 2){
+        return NO;
+    }
+    
+    if([_tableDataArray count] <= 1){
+        return NO;
+    }
+    
+    return YES;
+}
+
+//设置具体的编辑操作（新增，删除）
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ////删除数组中的对应数据,注意list 要是可变的集合才能够进行删除或新增操作
+    [_tableDataArray removeObjectAtIndex:indexPath.row];
+    
+    //tableView刷新方式2    设置tableView带动画效果 删除数据
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+    
+    //取消编辑状态
+    [tableView setEditing:NO animated:YES];
+}
+
 
 #pragma -mark notification
 - (void)addCityCallBack:(NSNotification *)notification {
     NSString *cityname = (NSString *)notification.object;
     [self.tableDataArray addObject:cityname];
+    
+    //刷新
     [_menuTableView reloadData];
 }
 

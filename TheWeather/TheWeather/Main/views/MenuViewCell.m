@@ -35,17 +35,17 @@
         [self.textLabel1 setFont:[UIFont systemFontOfSize:17]];
         [self.contentView addSubview:self.textLabel1];
         
-        self.imgView = [[UIImageView alloc] init];
-        [self.imgView setBackgroundColor:[UIColor clearColor]];
-        [self.imgView setContentMode:UIViewContentModeScaleAspectFit];
-        self.imgView.clipsToBounds = YES;
-        [self.contentView addSubview:self.imgView];
+//        self.imgView = [[UIImageView alloc] init];
+//        [self.imgView setBackgroundColor:[UIColor clearColor]];
+//        [self.imgView setContentMode:UIViewContentModeScaleAspectFit];
+//        self.imgView.clipsToBounds = YES;
+//        [self.contentView addSubview:self.imgView];
         
-        self.sep = [[UIImageView alloc] init];
-        [self.sep setBackgroundColor:RGB(220, 220, 220)];
-        [self.sep setContentMode:UIViewContentModeBottom];
-        self.sep.clipsToBounds = YES;
-        [self.contentView addSubview:self.sep];
+//        self.sep = [[UIImageView alloc] init];
+//        [self.sep setBackgroundColor:RGB(220, 220, 220)];
+//        [self.sep setContentMode:UIViewContentModeBottom];
+//        self.sep.clipsToBounds = YES;
+//        [self.contentView addSubview:self.sep];
     }
     
     return self;
@@ -63,15 +63,15 @@
     CGRect rcName = self.textLabel.frame;
     rcName.origin.x = margin;
     rcName.origin.y = 10;
-    rcName.size.height = 40;
-    rcName.size.width = (rcCell.size.width - 3*margin)/3*2;
+    rcName.size.height = 30;
+    rcName.size.width = rcCell.size.width - 2*margin;
     self.textLabel1.frame = rcName;
     
-    CGRect rcImg= CGRectMake(rcName.size.width + 2*margin, 15 , (rcCell.size.width - 3*margin)/3, 80);
-    self.imgView.frame = rcImg;
+//    CGRect rcImg= CGRectMake(rcName.size.width + 2*margin, 15 , (rcCell.size.width - 3*margin)/3, 80);
+//    self.imgView.frame = rcImg;
     
-    CGRect rcSep = CGRectMake(0, 1 , rcCell.size.width, 1);
-    self.sep.frame = rcSep;
+//    CGRect rcSep = CGRectMake(0, 1 , rcCell.size.width, 1);
+//    self.sep.frame = rcSep;
 }
 
 @end
