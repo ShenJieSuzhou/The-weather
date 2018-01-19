@@ -14,6 +14,8 @@
 #import "JSONKit.h"
 #import <SDWebImage/SDWebImageManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "GlobalDefine.h"
+#import "ConstantIndex.h"
 
 @interface WeatherViewController ()
 
@@ -40,7 +42,7 @@
 
 - (CustomCollectionView *)customWeatherView{
     if(!_customWeatherView){
-        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height)];
     }
     
     return _customWeatherView;
@@ -57,7 +59,7 @@
     [self addGuestureCtrl];
     
     //添加一个定时器，每一个小时刷新一遍数据
-    _freshTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(freshData) userInfo:nil repeats:YES];
+    _freshTimer = [NSTimer scheduledTimerWithTimeInterval:60*60.0 target:self selector:@selector(freshData) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:_freshTimer forMode:NSDefaultRunLoopMode];
 }
 
@@ -72,7 +74,7 @@
  */
 - (void)automaticLocation{
     __weak typeof(self) weakSelf = self;
-
+    [ConstantIndex getInstance].locationFlag = NO;
     [[LocationController getInstance] startLocation:self block:^(NSString *cityName) {
         [weakSelf.locationView.locationTitle setText:cityName];
         [weakSelf requestWeatherInfo:cityName];
@@ -97,6 +99,11 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *weatherData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
         
+        if(!weatherData) return ;
+        //回调给 MainViewController 添加城市
+        [[NSNotificationCenter defaultCenter] postNotificationName:CITYNAME_CALLBACK object:city];
+//        [_delegate cityWeatherCallBack:city];
+        
         //解析天气数据
         [weakSelf paraseWeatherData:weatherData];
         
@@ -114,22 +121,24 @@
     self.screenImage = [[UIImageView alloc] init];
     self.screenImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.screenImage setFrame:self.view.bounds];
+    [self.screenImage setImage:[UIImage imageNamed:@"placeholder"]];
     [self.view addSubview:self.screenImage];
     
     __weak typeof(self) weakSelf = self;
     _xmlUtil = [[XMLUtil alloc] init];
-    NSString *URLString = @"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1";
+
     //初始化manager
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:URLString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:BING parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [weakSelf.xmlUtil parse:responseObject block:^(NSString *imageName) {
             NSString *url = [[NSString stringWithFormat:@"http://s.cn.bing.net%@", imageName] stringByAppendingString:@"_720x1280.jpg"];
             
-            [weakSelf.screenImage sd_setImageWithURL:[NSURL URLWithString:url]];
+            [weakSelf.screenImage sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageRetryFailed];
         }];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //提示网络请求失败，检查网络
         NSLog(@"壁纸加载失败");
@@ -194,10 +203,11 @@
     [self.shareBtn addTarget:self action:@selector(shareWeather:) forControlEvents:UIControlEventTouchUpInside];
     
     self.locationView = [[LocationView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 150)/2, 30, 150, 20)];
+    self.locationView.delegate = self;
     [self.locationView.locationTitle setText:@"正在定位"];
     [self.locationView.addImage setImage:[UIImage imageNamed:@"editlocplus"]];
     [self.locationView.locateImage setImage:[UIImage imageNamed:@"currentlocation"]];
-    
+
     self.settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.settingBtn setFrame:CGRectMake(20, 30, 20, 20)];
     [self.settingBtn setBackgroundImage:[UIImage imageNamed:@"icon-moreinfo-ipad"] forState:UIControlStateNormal];
@@ -263,9 +273,22 @@
     [self initScreenImage];
 }
 
+#pragma mark - LocationTapDelegate
+- (void)LocationDidTapView:(LocationView *)view{
+    // 添加城市天气信息
+    GYZChooseCityController *cityPickerVC = [[GYZChooseCityController alloc] init];
+    [cityPickerVC setDelegate:self];
+    
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+        
+    }];
+}
+
 #pragma mark - GYZCityPickerDelegate
 - (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
 {
+    [self requestWeatherInfo:city.cityName];
+    
     [chooseCityController dismissViewControllerAnimated:YES completion:^{
         
     }];

@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationView : UIView
+@protocol LocationTapDelegate;
+
+@interface LocationView : UIView<UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIImageView *addImage;
 @property (strong, nonatomic) UILabel *locationTitle;
 @property (strong, nonatomic) UIImageView *locateImage;
+@property (strong, nonatomic) UITapGestureRecognizer *guesture;
+@property (strong, nonatomic) id<LocationTapDelegate> delegate;
+@end
+
+@protocol LocationTapDelegate <NSObject>
+@optional
+
+- (void)LocationDidTapView:(LocationView *)view;
 
 @end

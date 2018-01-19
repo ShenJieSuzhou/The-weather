@@ -17,17 +17,16 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
     _indexTableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStylePlain];
     [_indexTableView setBackgroundColor:[UIColor clearColor]];
     _indexTableView.dataSource = self;
     _indexTableView.delegate = self;
+    _indexTableView.scrollEnabled = NO;
     [self addSubview:self.indexTableView];
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-
 }
 
 - (void)setCurrentWeather:(CurrentWeatherInfo *)currentWeather{

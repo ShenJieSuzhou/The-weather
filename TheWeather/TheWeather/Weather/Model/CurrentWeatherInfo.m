@@ -46,7 +46,7 @@
     NSDictionary * dic3 = @{@"index":@"紫外线",@"value":self.uvIndex};
     NSDictionary * dic4 = @{@"index":@"洗衣",@"value":self.washIndex};
     NSDictionary * dic5 = @{@"index":@"旅行",@"value":self.travelIndex};
-    NSDictionary * dic6 = @{@"index":@"气温",@"value":self.exerciseIndex};
+    NSDictionary * dic6 = @{@"index":@"运动",@"value":self.exerciseIndex};
     
     self.indexArray = [[NSMutableArray alloc] init];
     [self.indexArray addObject:dic1];

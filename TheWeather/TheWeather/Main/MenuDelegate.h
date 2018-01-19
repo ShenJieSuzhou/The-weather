@@ -12,5 +12,7 @@
 
 - (void)openMenuViewController;
 - (void)closeMenuController;
+- (void)cityWeatherCallBack:(NSString *)cityname;
+
 
 @end

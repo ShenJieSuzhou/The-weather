@@ -11,6 +11,7 @@
 #import "GlobalDefine.h"
 #import "MenuViewCell.h"
 
+
 @interface MenuViewController ()
 @property (strong, nonatomic) MainViewController *mainView;
 
@@ -32,8 +33,12 @@
 //    [self.closeBtn setBackgroundColor:[UIColor blueColor]];
 //    [self.closeBtn addTarget:self action:@selector(closeTheMenus:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:self.closeBtn];
+    
+    // 添加监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCityCallBack:) name:CITYNAME_CALLBACK object:nil];
+    
     //初始化 “城市”
-    self.tableDataArray = [[NSMutableArray alloc] initWithObjects:@"苏州", @"上海", @"香港", @"哈尔滨", nil];
+    self.tableDataArray = [[NSMutableArray alloc] init];
     
     //初始化 “工具” 菜单
     self.settingArray = [[NSMutableArray alloc] initWithObjects:@"设置", @"意见和建议", @"给此应用程序打分", nil];
@@ -168,30 +173,16 @@
     return headView;
 }
 
-////section底部间距
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 0;
-//}
-//
-////section底部视图
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
-//    view.backgroundColor = [UIColor clearColor];
-//
-//    NSMutableDictionary *dic = [_tableDataArray objectAtIndex:section];
-//    NSString *templateID = [dic objectForKey:@"cTemplateId"];
-//    int tid = [templateID intValue];
-//    if(tid == 0 || tid == 1){
-//        return nil;
-//    }
-//
-//    return view;
-//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+}
+
+#pragma -mark notification
+- (void)addCityCallBack:(NSNotification *)notification {
+    NSString *cityname = (NSString *)notification.object;
+    [self.tableDataArray addObject:cityname];
+    [_menuTableView reloadData];
 }
 
 @end

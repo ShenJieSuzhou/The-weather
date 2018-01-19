@@ -15,6 +15,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.userInteractionEnabled = YES;
+        _guesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tabToAddCity)];
+        _guesture.delegate = self;
+        _guesture.numberOfTapsRequired = 1;
+        [self addGestureRecognizer:_guesture];
+        
         [self addSubview:self.addImage];
         [self addSubview:self.locationTitle];
         [self addSubview:self.locateImage];
@@ -55,5 +61,9 @@
     return _locateImage;
 }
 
+//响应事件
+- (void)tabToAddCity{
+    [_delegate LocationDidTapView:self];
+}
 
 @end

@@ -16,7 +16,7 @@
 #import "FutureWeatherInfo.h"
 #import "XMLUtil.h"
 
-@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,NSXMLParserDelegate>
+@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,LocationTapDelegate>
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *settingBtn;

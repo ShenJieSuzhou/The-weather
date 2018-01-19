@@ -92,12 +92,12 @@
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
-    return CGSizeMake(self.bounds.size.width, self.bounds.size.height - 60); // 设置headerView的宽高
+    return CGSizeMake(self.bounds.size.width, self.bounds.size.height - 120); // 设置headerView的宽高
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     
-    return CGSizeMake(self.bounds.size.width, 400);
+    return CGSizeMake(self.bounds.size.width, 450);
 }
 
 #pragma mark - collectionViewDelegate
@@ -152,7 +152,7 @@
         
     }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
         WeatherDetailViewCell *footerCell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WeatherDetailViewCell" forIndexPath:indexPath];
-        
+        [footerCell.indexTableView setFrame:CGRectMake(0, 0, self.bounds.size.width, 450)];
         [footerCell setCurrentWeather:self.currentWeather];
         return footerCell;
     }

@@ -94,6 +94,8 @@
         return @"cloudy_day_night";
     }else if([weather isEqualToString:@"多云转小雨"]){
         return @"light_rain_day_night";
+    }else if([weather isEqualToString:@"中雨转小雨"]){
+        return @"light_rain_day_night";
     }
     
     return @"";

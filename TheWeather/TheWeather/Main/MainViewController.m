@@ -72,4 +72,9 @@
     }];
 }
 
+- (void)cityWeatherCallBack:(NSString *)cityname{
+//    NSLog(@"cityname:%@", cityname);
+    
+}
+
 @end

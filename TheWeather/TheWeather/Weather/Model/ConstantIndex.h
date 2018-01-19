@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *tommorrowRange;
 @property (strong, nonatomic) NSString *todayIcon;
 @property (strong, nonatomic) NSString *tommorrowIcon;
+@property (assign) BOOL locationFlag;
 
 + (ConstantIndex *)getInstance;
 @end

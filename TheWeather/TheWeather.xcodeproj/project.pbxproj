@@ -124,7 +124,7 @@
 		E5BCF357200732A200CFFA52 /* CurrentWeatherViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherViewCell.h; sourceTree = "<group>"; };
 		E5BCF358200732A200CFFA52 /* CurrentWeatherViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherViewCell.m; sourceTree = "<group>"; };
 		E5BCF359200732A200CFFA52 /* CurrentWeatherViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewCell.xib; sourceTree = "<group>"; };
-		E5BCF35C200C4ECA00CFFA52 /* LocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationView.h; sourceTree = "<group>"; };
+		E5BCF35C200C4ECA00CFFA52 /* LocationView.h */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.c.h; path = LocationView.h; sourceTree = "<group>"; };
 		E5BCF35D200C4ECA00CFFA52 /* LocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationView.m; sourceTree = "<group>"; };
 		E5BCF360200C7BDF00CFFA52 /* DailyForecastViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyForecastViewCell.h; sourceTree = "<group>"; };
 		E5BCF361200C7BDF00CFFA52 /* DailyForecastViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyForecastViewCell.m; sourceTree = "<group>"; };
