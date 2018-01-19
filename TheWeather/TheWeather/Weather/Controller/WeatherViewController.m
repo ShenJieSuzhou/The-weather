@@ -57,7 +57,7 @@
     [self addGuestureCtrl];
     
     //添加一个定时器，每一个小时刷新一遍数据
-    _freshTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(freshData) userInfo:nil repeats:YES];
+    _freshTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(freshData) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:_freshTimer forMode:NSDefaultRunLoopMode];
 }
 
@@ -111,22 +111,6 @@
  */
 - (void)initScreenImage{
     
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-//
-//    NSURL *URL = [NSURL URLWithString:@"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-//
-//    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        if (error) {
-//            NSLog(@"请求失败");
-//            NSLog(@"Error: %@", error);
-//        } else {
-//            NSLog(@"%@ %@", response, responseObject);
-//        }
-//    }];
-//
-//    [dataTask resume];
     self.screenImage = [[UIImageView alloc] init];
     self.screenImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.screenImage setFrame:self.view.bounds];
@@ -134,7 +118,6 @@
     
     __weak typeof(self) weakSelf = self;
     _xmlUtil = [[XMLUtil alloc] init];
-    
     NSString *URLString = @"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1";
     //初始化manager
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -143,21 +126,15 @@
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [weakSelf.xmlUtil parse:responseObject block:^(NSString *imageName) {
-            NSString *url = [NSString stringWithFormat:@"http://s.cn.bing.net/%@", imageName];
-//            sd_setImageWithURL:[NSURL URLWithString:url2] placeholderImage:[UIImage imageNamed:@"default_icon"] options:SDWebImageProgressiveDownload
-//            weakSelf.screenImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Eiffel"]];
-
-            [weakSelf.screenImage sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"Eiffel"] options:SDWebImageProgressiveDownload];
+            NSString *url = [[NSString stringWithFormat:@"http://s.cn.bing.net%@", imageName] stringByAppendingString:@"_720x1280.jpg"];
+            
+            [weakSelf.screenImage sd_setImageWithURL:[NSURL URLWithString:url]];
         }];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //提示网络请求失败，检查网络
-        NSLog(@"请求失败");
+        NSLog(@"壁纸加载失败");
     }];
-    
-    
-
 }
-
 
 /*
  * @brief 解析天气数据

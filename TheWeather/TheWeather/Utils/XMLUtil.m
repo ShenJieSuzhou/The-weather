@@ -23,7 +23,7 @@
 }
 //获取节点内容
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if ([self.currentElement isEqualToString:@"url"]){
+    if ([self.currentElement isEqualToString:@"urlBase"]){
         NSLog(@"%@", string);
         _mBlock(string);
     }
@@ -31,7 +31,7 @@
 
 //解析完一个节点
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName{
-    if ([elementName isEqualToString:@"url"]) {
+    if ([elementName isEqualToString:@"urlBase"]) {
         
     }
     self.currentElement = nil;
