@@ -10,6 +10,8 @@
 #import "MainViewController.h"
 #import "RootViewController.h"
 #import "MenuViewController.h"
+#import "FileUtil.h"
+#import "GlobalDefine.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +22,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //生成配置文件
+    [self config];
+   
+    //创建菜单页面
     UITabBar *item = [UITabBar appearance];
     item.tintColor = [UIColor orangeColor];
     UINavigationBar *navigationBar = [UINavigationBar appearance];
@@ -49,14 +55,11 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    
-    
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
 }
 
 
@@ -64,5 +67,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)config{
+    if([FileUtil createFile:CITY_CONFIG_FILE]){
+        NSLog(@"创建成功");
+    }else{
+        NSLog(@"创建失败");
+    }
+}
 
 @end

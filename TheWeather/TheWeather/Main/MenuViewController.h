@@ -14,4 +14,5 @@
 @property (nonatomic, strong) UITableView *menuTableView;
 @property (nonatomic, strong) NSMutableArray *tableDataArray;
 @property (strong, nonatomic) NSMutableArray *settingArray;
+@property (strong, nonatomic) NSMutableArray *cityArray;
 @end

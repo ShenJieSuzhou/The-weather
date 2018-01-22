@@ -25,6 +25,7 @@
 		E55F871A201041EA00160BF0 /* WeatherIconIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E55F8719201041EA00160BF0 /* WeatherIconIdentifier.m */; };
 		E5979EF62010BE5E004E0F5A /* XMLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5979EF52010BE5E004E0F5A /* XMLUtil.m */; };
 		E5979EF82011F1B2004E0F5A /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5979EF72011F1B2004E0F5A /* City.plist */; };
+		E5979EFD20158B08004E0F5A /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5979EFC20158B08004E0F5A /* FileUtil.m */; };
 		E5BCF31420046A5F00CFFA52 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31320046A5F00CFFA52 /* MainViewController.m */; };
 		E5BCF31720046BBA00CFFA52 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCF31620046BBA00CFFA52 /* BaseNavigationViewController.m */; };
 		E5BCF31920046C5C00CFFA52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BCF31820046C5C00CFFA52 /* Images.xcassets */; };
@@ -90,6 +91,8 @@
 		E5979EF42010BE5E004E0F5A /* XMLUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLUtil.h; sourceTree = "<group>"; };
 		E5979EF52010BE5E004E0F5A /* XMLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLUtil.m; sourceTree = "<group>"; };
 		E5979EF72011F1B2004E0F5A /* City.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		E5979EFB20158B08004E0F5A /* FileUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
+		E5979EFC20158B08004E0F5A /* FileUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
 		E5BCF31220046A5F00CFFA52 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		E5BCF31320046A5F00CFFA52 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E5BCF31520046BBA00CFFA52 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				E5BCF33B2005AF6A00CFFA52 /* GlobalDefine.h */,
 				E5979EF42010BE5E004E0F5A /* XMLUtil.h */,
 				E5979EF52010BE5E004E0F5A /* XMLUtil.m */,
+				E5979EFB20158B08004E0F5A /* FileUtil.h */,
+				E5979EFC20158B08004E0F5A /* FileUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -599,6 +604,7 @@
 				442DB6A41E8E27FA00724551 /* AppDelegate.m in Sources */,
 				E5BCF32E2004953300CFFA52 /* SportsInfoViewController.m in Sources */,
 				44929797200B388C00BAD666 /* GYZCityHeaderView.m in Sources */,
+				E5979EFD20158B08004E0F5A /* FileUtil.m in Sources */,
 				E5BCF35A200732A200CFFA52 /* CurrentWeatherViewCell.m in Sources */,
 				44929796200B388C00BAD666 /* GYZCityGroupCell.m in Sources */,
 				E5BCF356200700A700CFFA52 /* FutureWeatherInfo.m in Sources */,

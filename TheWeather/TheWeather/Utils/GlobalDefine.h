@@ -27,3 +27,4 @@
 
 #define BING @"http://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1"
 #define CITYNAME_CALLBACK @"CITYNAME_CALLBACK"
+#define CITY_CONFIG_FILE @"CITY_NAME.plist"

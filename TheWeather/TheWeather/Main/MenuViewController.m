@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "GlobalDefine.h"
 #import "MenuViewCell.h"
+#import "FileUtil.h"
 
 
 @interface MenuViewController ()
@@ -22,6 +23,7 @@
 @synthesize tableDataArray = _tableDataArray;
 @synthesize menuTableView = _menuTableView;
 @synthesize settingArray = _settingArray;
+@synthesize cityArray = _cityArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,10 +31,9 @@
     // 添加监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCityCallBack:) name:CITYNAME_CALLBACK object:nil];
     
-    //初始化 “城市”
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"City" ofType:@"plist"];
-    self.tableDataArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    
+    //初始化 “城市”    
+    self.tableDataArray = [[NSMutableArray alloc] initWithContentsOfFile:[FileUtil getFilePath:CITY_CONFIG_FILE]];
+
     //初始化 “工具” 菜单
     self.settingArray = [[NSMutableArray alloc] initWithObjects:@"设置", @"意见和建议", @"给此应用程序打分", nil];
     
@@ -218,15 +219,16 @@
         return;
     }
     
-    //刷新
     [self.tableDataArray addObject:cityname];
-    [_menuTableView reloadData];
     
-    //写入文件
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"City" ofType:@"plist"];
-    if([self.tableDataArray writeToFile:filePath atomically:YES]){
-        NSLog(@"写入失败");
-    }
+    //刷新
+    [_menuTableView reloadData];
+
+    //将需要添加的城市写入文件
+    NSString *filePath = [FileUtil getFilePath:CITY_CONFIG_FILE];
+   if([self.tableDataArray writeToFile:filePath atomically:YES]){
+
+   }
 }
 
 @end
