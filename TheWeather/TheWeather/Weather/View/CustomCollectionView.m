@@ -78,6 +78,7 @@
     }
     
     _futureWeather = futureWeather;
+    [_collectionView reloadData];
 }
 
 - (void)setCurrentWeather:(CurrentWeatherInfo *)currentWeather{
@@ -86,6 +87,7 @@
     }
     
     _currentWeather = currentWeather;
+    [_collectionView reloadData];
 }
 /*
  * @brief 设置 HeadCollectionViewCell frame 大小

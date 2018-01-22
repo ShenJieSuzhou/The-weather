@@ -26,6 +26,15 @@
     [self.forecastTableView registerNib:[UINib nibWithNibName:@"ForecastViewCell" bundle:nil] forCellReuseIdentifier:@"ForecastViewCell"];
 }
 
+- (void)setForecastArray:(NSMutableArray *)forecastArray{
+    if(!forecastArray){
+        return;
+    }
+    
+    _forecastArray = forecastArray;
+    [_forecastTableView reloadData];
+}
+
 #pragma mark -tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 7;
@@ -40,7 +49,6 @@
     [cell.weather setText:weather.weather];
     [cell.range setText:weather.temperature];
     [cell.icon setImage:[UIImage imageNamed:[[WeatherIconIdentifier getInstance] requestWeatherIcon:weather.weather]]];
-    
     
     return cell;
 }

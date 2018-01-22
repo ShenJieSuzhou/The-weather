@@ -96,6 +96,24 @@
         return @"light_rain_day_night";
     }else if([weather isEqualToString:@"中雨转小雨"]){
         return @"light_rain_day_night";
+    }else if([weather isEqualToString:@"暴雪转大雪"]){
+        return @"snow_day_night";
+    }else if([weather isEqualToString:@"雨夹雪转大雪"]){
+        return @"snow_day_night";
+    }else if([weather isEqualToString:@"晴转多云"]){
+        return @"cloudy_day_night";
+    }else if([weather isEqualToString:@"小雪转阴"]){
+        return @"flurries_day_night";
+    }else if([weather isEqualToString:@"多云转晴"]){
+        return @"clear_day";
+    }else if([weather isEqualToString:@"小雪转雨夹雪"]){
+        return @"flurries_day_night";
+    }else if([weather isEqualToString:@"阴转小雨"]){
+        return @"light_rain_day_night";
+    }else if([weather isEqualToString:@"雨夹雪转小雪"]){
+        return @"flurries_day_night";
+    }else if([weather isEqualToString:@"阴转小雪"]){
+        return @"flurries_day_night";
     }
     
     return @"";

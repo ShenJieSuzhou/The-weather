@@ -102,7 +102,6 @@
         if(!weatherData) return ;
         //回调给 MainViewController 添加城市
         [[NSNotificationCenter defaultCenter] postNotificationName:CITYNAME_CALLBACK object:city];
-//        [_delegate cityWeatherCallBack:city];
         
         //解析天气数据
         [weakSelf paraseWeatherData:weatherData];
@@ -265,6 +264,14 @@
     NSLog(@"分享");
 }
 
+/*
+ * @brief 设置城市名称
+ */
+- (void)setCityName:(NSString *)name{
+    [self.locationView.locationTitle setText:name];
+    [self requestWeatherInfo:name];
+}
+
 #pragma mark - freshData
 - (void)freshData{
     //刷新地理位置
@@ -287,6 +294,7 @@
 #pragma mark - GYZCityPickerDelegate
 - (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
 {
+    [self.locationView.locationTitle setText:city.cityName];
     [self requestWeatherInfo:city.cityName];
     
     [chooseCityController dismissViewControllerAnimated:YES completion:^{

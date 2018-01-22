@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuViewController.h"
 @interface MainViewController : UITabBarController
 
+- (void)MenuSetCityName:(NSString *)name;
 
 @end

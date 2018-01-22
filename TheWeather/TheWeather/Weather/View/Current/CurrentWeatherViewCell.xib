@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="width" constant="138" id="FPV-9U-sYh"/>
                                     <constraint firstAttribute="height" constant="53" id="ngG-UV-PvD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -74,12 +74,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlp-2q-Hkg">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="晴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlp-2q-Hkg">
                                 <rect key="frame" x="184" y="32" width="167" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="Uex-aS-Vkz"/>
-                                    <constraint firstAttribute="width" constant="167" id="aiy-fd-Ivo"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -115,12 +112,12 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="晴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOD-b5-Kzo">
                                         <rect key="frame" x="23" y="50" width="80" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tdp-UU-MLi">
-                                        <rect key="frame" x="135" y="47" width="34" height="34"/>
+                                        <rect key="frame" x="139" y="51" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
@@ -148,12 +145,12 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="阴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-hC-k6J">
                                         <rect key="frame" x="17" y="49" width="80" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfy-Ic-Rgm">
-                                        <rect key="frame" x="137" y="46" width="34" height="34"/>
+                                        <rect key="frame" x="140" y="50" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
@@ -178,7 +175,6 @@
                             <constraint firstItem="OuQ-Iv-tFf" firstAttribute="leading" secondItem="Ubj-im-nWF" secondAttribute="leading" constant="8" id="2sW-w6-kqg"/>
                             <constraint firstItem="F2i-Pu-1hf" firstAttribute="leading" secondItem="701-Uj-LPg" secondAttribute="trailing" constant="1" id="8Wf-ft-212"/>
                             <constraint firstItem="701-Uj-LPg" firstAttribute="leading" secondItem="Pb1-Si-T7W" secondAttribute="trailing" constant="25" id="DBu-sT-rXj"/>
-                            <constraint firstItem="Xlp-2q-Hkg" firstAttribute="leading" secondItem="1Rg-3g-N9Y" secondAttribute="trailing" constant="6" id="E70-me-HOq"/>
                             <constraint firstItem="Pb1-Si-T7W" firstAttribute="leading" secondItem="OuQ-Iv-tFf" secondAttribute="trailing" constant="14" id="E96-mJ-fFN"/>
                             <constraint firstAttribute="trailing" secondItem="98l-Ax-U4x" secondAttribute="trailing" id="EmO-LO-nbS"/>
                             <constraint firstItem="98l-Ax-U4x" firstAttribute="top" secondItem="OuQ-Iv-tFf" secondAttribute="bottom" constant="8.3300000000000001" id="GFm-S1-oGH"/>
@@ -192,7 +188,6 @@
                             <constraint firstItem="98l-Ax-U4x" firstAttribute="leading" secondItem="Ubj-im-nWF" secondAttribute="leading" id="Wwg-av-nGk"/>
                             <constraint firstItem="1Rg-3g-N9Y" firstAttribute="top" secondItem="Ubj-im-nWF" secondAttribute="top" constant="15" id="XRx-S3-9PN"/>
                             <constraint firstItem="JZd-zs-YJW" firstAttribute="top" secondItem="Ubj-im-nWF" secondAttribute="top" constant="27" id="aEq-TA-Gyd"/>
-                            <constraint firstItem="Xlp-2q-Hkg" firstAttribute="top" secondItem="Ubj-im-nWF" secondAttribute="top" constant="32" id="aWL-pU-dWc"/>
                             <constraint firstItem="Pb1-Si-T7W" firstAttribute="top" secondItem="JZd-zs-YJW" secondAttribute="bottom" constant="6" id="gRC-NN-45E"/>
                             <constraint firstItem="98l-Ax-U4x" firstAttribute="top" secondItem="F2i-Pu-1hf" secondAttribute="bottom" constant="7.3300000000000001" id="tDO-Ei-lVL"/>
                             <constraint firstAttribute="height" constant="210" id="x9X-rN-VCg"/>

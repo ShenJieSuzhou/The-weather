@@ -24,6 +24,7 @@
 @synthesize menuTableView = _menuTableView;
 @synthesize settingArray = _settingArray;
 @synthesize cityArray = _cityArray;
+//@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -167,7 +168,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    if(indexPath.section == 1){
+        [_mainView MenuSetCityName:[self.tableDataArray objectAtIndex:indexPath.row]];
+    }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -32,7 +32,7 @@
 
 @property (strong, nonatomic) UIImageView *screenImage;
 
-
+- (void)setCityName:(NSString *)name;
 
 
 @end

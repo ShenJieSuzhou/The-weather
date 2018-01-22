@@ -72,9 +72,12 @@
     }];
 }
 
-- (void)cityWeatherCallBack:(NSString *)cityname{
-//    NSLog(@"cityname:%@", cityname);
-    
+
+- (void)MenuSetCityName:(NSString *)name{
+    [_weatherView setCityName:name];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
 }
 
 @end
