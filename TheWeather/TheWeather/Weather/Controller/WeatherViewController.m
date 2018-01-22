@@ -17,6 +17,7 @@
 #import "GlobalDefine.h"
 #import "ConstantIndex.h"
 
+
 @interface WeatherViewController ()
 
 @end
@@ -29,13 +30,14 @@
 @synthesize currentWeatherInfo = _currentWeatherInfo;
 @synthesize futureWeatherInfo = _futureWeatherInfo;
 @synthesize freshTimer = _freshTimer;
+@synthesize hudView = _hudView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
     [self.view setBackgroundColor:[UIColor clearColor]];
-    
+
     //初始化数据
     [self initLocationBingAndWeather];
 }
@@ -52,6 +54,7 @@
  * @brief 初始化定位，壁纸以及天气数据信息
  */
 - (void)initLocationBingAndWeather{
+    self.hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
     //初始化数据
     [self automaticLocation];
     [self initScreenImage];
@@ -86,6 +89,10 @@
  */
 - (void)requestWeatherInfo:(NSString *)city{
     //转菊花
+    //show
+    [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
+    _hudView.messageLabel.text = @"";
+    _hudView.refreshButton;
     __weak typeof(self) weakSelf = self;
     
     NSString *URLString = @"http://v.juhe.cn/weather/index";
@@ -105,10 +112,13 @@
         
         //解析天气数据
         [weakSelf paraseWeatherData:weatherData];
-        
+        //hide
+        [weakSelf.hudView hide];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //提示网络请求失败，检查网络
         NSLog(@"请求失败");
+        [_hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
+        _hudView.messageLabel.text = @"";
     }];
 }
 

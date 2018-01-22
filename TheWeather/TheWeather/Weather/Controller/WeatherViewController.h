@@ -15,6 +15,7 @@
 #import "CurrentWeatherInfo.h"
 #import "FutureWeatherInfo.h"
 #import "XMLUtil.h"
+#import "JHUD.h"
 
 @interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,LocationTapDelegate>
 
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) XMLUtil *xmlUtil;
 
 @property (strong, nonatomic) UIImageView *screenImage;
+@property (strong, nonatomic) JHUD *hudView;
 
 - (void)setCityName:(NSString *)name;
 
