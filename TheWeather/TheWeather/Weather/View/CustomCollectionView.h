@@ -28,4 +28,6 @@
 
 @protocol CustomCollectionViewDelegate <NSObject>
 - (void)collectionView:(CustomCollectionView *)collectionView didSelectItemAtIndex:(NSInteger)index;
+- (void)collectionView:(CustomCollectionView *)collectionView didScroll:(BOOL)scroll;
+- (void)collectionView:(CustomCollectionView *)collectionView endScroll:(BOOL)scroll;
 @end

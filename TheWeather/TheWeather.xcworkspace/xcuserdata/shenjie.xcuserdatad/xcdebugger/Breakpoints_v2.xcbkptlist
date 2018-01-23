@@ -19,5 +19,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheWeather/Weather/Controller/WeatherViewController.m"
+            timestampString = "538391155.658092"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-slideControllerView:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WeatherViewController slideControllerView:]"
+                  moduleName = "TheWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/Weather/TheWeather/TheWeather/Weather/Controller/WeatherViewController.m"
+                  timestampString = "538391155.709986"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "284"
+                  endingLineNumber = "284"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[WeatherViewController slideControllerView:]_block_invoke"
+                  moduleName = "TheWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/Weather/TheWeather/TheWeather/Weather/Controller/WeatherViewController.m"
+                  timestampString = "538391155.711779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "284"
+                  endingLineNumber = "284"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheWeather/Main/MainViewController.m"
+            timestampString = "538391155.6581531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-openMenuViewController"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MainViewController openMenuViewController]"
+                  moduleName = "TheWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/Weather/TheWeather/TheWeather/Main/MainViewController.m"
+                  timestampString = "538391155.719576"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[MainViewController openMenuViewController]_block_invoke"
+                  moduleName = "TheWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/Weather/TheWeather/TheWeather/Main/MainViewController.m"
+                  timestampString = "538391155.722429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

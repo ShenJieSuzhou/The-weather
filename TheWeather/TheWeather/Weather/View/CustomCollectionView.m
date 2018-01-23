@@ -162,6 +162,14 @@
     return nil;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [_delegate collectionView:self didScroll:YES];
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [_delegate collectionView:self endScroll:NO];
+}
 
 
 @end

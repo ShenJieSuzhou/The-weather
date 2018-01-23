@@ -28,15 +28,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.tabBar setBackgroundColor:[UIColor whiteColor]];
+    
     _weatherView = [WeatherViewController new];
     _sportsView = [SportsInfoViewController new];
     _newsView = [NewsViewController new];
-
+    
     _weatherView.delegate = self;
     
-    [self setupChildViewController:@"天气" viewController:_weatherView image:@"v2_home" selectedImage:@"v2_home_r"];
-    [self setupChildViewController:@"体育" viewController:_sportsView image:@"v2_order" selectedImage:@"v2_order_r"];
-    [self setupChildViewController:@"头条" viewController:_newsView image:@"shopCart" selectedImage:@"shopCart_r"];
+    [self setupChildViewController:@"天气" viewController:_weatherView image:@"cloudy_day_night" selectedImage:@"cloudy_day_night_r"];
+    [self setupChildViewController:@"体育" viewController:_sportsView image:@"HottestIcon" selectedImage:@"HottestIconFilled"];
+    [self setupChildViewController:@"头条" viewController:_newsView image:@"NewestIcon" selectedImage:@"NewestIconFilled"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,10 +51,7 @@
                            image:(NSString *)image
                    selectedImage:(NSString *)selectedImage {
     
-    UITabBarItem *item = [[UITabBarItem alloc]init];
-    item.image = [UIImage imageNamed:image];
-    item.selectedImage = [UIImage imageNamed:selectedImage];
-    item.title = title;
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:image] selectedImage:[UIImage imageNamed:selectedImage]];
     controller.tabBarItem = item;
     controller.title = title;
     BaseNavigationViewController *naController = [[BaseNavigationViewController alloc] initWithRootViewController:controller];
@@ -72,6 +71,9 @@
     }];
 }
 
+- (void)cityWeatherCallBack:(NSString *)cityname {
+    
+}
 
 - (void)MenuSetCityName:(NSString *)name{
     [_weatherView setCityName:name];
@@ -79,5 +81,6 @@
         [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }];
 }
+
 
 @end

@@ -16,6 +16,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "GlobalDefine.h"
 #import "ConstantIndex.h"
+#import "MainViewController.h"
 
 
 @interface WeatherViewController ()
@@ -31,6 +32,7 @@
 @synthesize futureWeatherInfo = _futureWeatherInfo;
 @synthesize freshTimer = _freshTimer;
 @synthesize hudView = _hudView;
+@synthesize hudView1 = _hudView1;
 @synthesize locateCity = _locateCity;
 
 - (void)viewDidLoad {
@@ -45,7 +47,7 @@
 
 - (CustomCollectionView *)customWeatherView{
     if(!_customWeatherView){
-        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height)];
+        _customWeatherView = [[CustomCollectionView alloc] initWithFrame:CGRectMake(0, 70, self.view.bounds.size.width, self.view.bounds.size.height)];
     }
     
     return _customWeatherView;
@@ -55,11 +57,19 @@
  * @brief 初始化定位，壁纸以及天气数据信息
  */
 - (void)initLocationBingAndWeather{
+    //设置加载项
     self.hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+    self.hudView1 = [[JHUD alloc]initWithFrame:self.view.bounds];
+    
     __weak typeof(self)  _weakSelf = self;
     [self.hudView setJHUDReloadButtonClickedBlock:^() {
         NSLog(@"refreshButton");
         [_weakSelf requestWeatherInfo:_weakSelf.locateCity];
+    }];
+    
+    [self.hudView1 setJHUDReloadButtonClickedBlock:^() {
+        NSLog(@"refreshButton");
+        [_weakSelf initScreenImage];
     }];
     
     
@@ -116,6 +126,16 @@
         NSDictionary *weatherData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
         
         if(!weatherData) return ;
+        
+        if([[weatherData objectForKey:@"error_code"] intValue] != 0){
+            weakSelf.hudView.indicatorViewSize = CGSizeMake(100, 100);
+            weakSelf.hudView.messageLabel.text = @"请求数据失败!";
+            [weakSelf.hudView.refreshButton setTitle:@"刷新" forState:UIControlStateNormal];
+            weakSelf.hudView.customImage = [UIImage imageNamed:@"failed"];
+            [weakSelf.hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
+            return;
+        }
+        
         //回调给 MainViewController 添加城市
         [[NSNotificationCenter defaultCenter] postNotificationName:CITYNAME_CALLBACK object:city];
         
@@ -125,7 +145,6 @@
         [weakSelf.hudView hide];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //提示网络请求失败，检查网络
-        NSLog(@"请求失败");
         weakSelf.hudView.indicatorViewSize = CGSizeMake(100, 100);
         weakSelf.hudView.messageLabel.text = @"网络请求失败，请检查网络!";
         [weakSelf.hudView.refreshButton setTitle:@"刷新" forState:UIControlStateNormal];
@@ -204,9 +223,9 @@
  *@brief 初始化天气可视化视图
  */
 - (void)initWeatherVisibleView{
+    self.customWeatherView.delegate = self;
     [[self customWeatherView] setCurrentWeather:self.currentWeatherInfo];
     [[self customWeatherView] setFutureWeather:self.futureWeatherInfo];
-    
     [self.view addSubview:[self customWeatherView]];
 }
 
@@ -332,5 +351,23 @@
     }];
 }
 
+#pragma mark - CustomCollectionViewDelegate
+- (void)collectionView:(CustomCollectionView *)collectionView didSelectItemAtIndex:(NSInteger)index{
+    
+}
+
+- (void)collectionView:(CustomCollectionView *)collectionView didScroll:(BOOL)scroll{
+    MainViewController *main = (MainViewController *)self.parentViewController.parentViewController;
+    [UIView animateWithDuration:0.5 animations:^{
+        [main.tabBar setHidden:YES];
+    }];
+}
+
+- (void)collectionView:(CustomCollectionView *)collectionView endScroll:(BOOL)scroll{
+    MainViewController *main = (MainViewController *)self.parentViewController.parentViewController;
+    [UIView animateWithDuration:0.5 animations:^{
+         [main.tabBar setHidden:NO];
+    }];
+}
 
 @end

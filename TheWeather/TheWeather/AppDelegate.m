@@ -27,7 +27,7 @@
    
     //创建菜单页面
     UITabBar *item = [UITabBar appearance];
-    item.tintColor = [UIColor orangeColor];
+    item.tintColor = [UIColor blackColor];
     UINavigationBar *navigationBar = [UINavigationBar appearance];
     // 禁止透明度
     navigationBar.translucent = NO;

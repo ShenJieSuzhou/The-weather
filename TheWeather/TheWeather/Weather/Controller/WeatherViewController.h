@@ -17,7 +17,7 @@
 #import "XMLUtil.h"
 #import "JHUD.h"
 
-@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,LocationTapDelegate>
+@interface WeatherViewController : BaseViewController<UIGestureRecognizerDelegate,GYZChooseCityDelegate,LocationTapDelegate, CustomCollectionViewDelegate>
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *settingBtn;
@@ -34,6 +34,7 @@
 
 @property (strong, nonatomic) UIImageView *screenImage;
 @property (strong, nonatomic) JHUD *hudView;
+@property (strong, nonatomic) JHUD *hudView1;
 
 - (void)setCityName:(NSString *)name;
 
