@@ -6,11 +6,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "GiftShare_icon_18x22_@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "currentlocation@3x.png",
+      "filename" : "GiftShare_icon_18x22_@3x.png",
       "scale" : "3x"
     }
   ],

@@ -30,6 +30,7 @@
 @property (strong, nonatomic) FutureWeatherInfo *futureWeatherInfo;
 @property (strong, nonatomic) NSTimer *freshTimer;
 @property (nonatomic, strong) XMLUtil *xmlUtil;
+@property (strong, nonatomic) NSString *locateCity;
 
 @property (strong, nonatomic) UIImageView *screenImage;
 @property (strong, nonatomic) JHUD *hudView;

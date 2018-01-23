@@ -95,7 +95,7 @@
         [loginCell setFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
         [loginCell.textLabel setText:@"登录/注册"];
         [loginCell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
-        [loginCell.imageView setImage:[UIImage imageNamed:@"Dark-Sidebar-Identity-Anonymous-Signed-In"]];
+        [loginCell.imageView setImage:[UIImage imageNamed:@"PostComment_AvatarPlaceholder_40x40_"]];
         return loginCell;
         
     }else if(indexPath.section == 1){

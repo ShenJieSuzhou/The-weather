@@ -31,6 +31,7 @@
 @synthesize futureWeatherInfo = _futureWeatherInfo;
 @synthesize freshTimer = _freshTimer;
 @synthesize hudView = _hudView;
+@synthesize locateCity = _locateCity;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,6 +56,13 @@
  */
 - (void)initLocationBingAndWeather{
     self.hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+    __weak typeof(self)  _weakSelf = self;
+    [self.hudView setJHUDReloadButtonClickedBlock:^() {
+        NSLog(@"refreshButton");
+        [_weakSelf requestWeatherInfo:_weakSelf.locateCity];
+    }];
+    
+    
     //初始化数据
     [self automaticLocation];
     [self initScreenImage];
@@ -79,6 +87,7 @@
     __weak typeof(self) weakSelf = self;
     [ConstantIndex getInstance].locationFlag = NO;
     [[LocationController getInstance] startLocation:self block:^(NSString *cityName) {
+        weakSelf.locateCity = cityName;
         [weakSelf.locationView.locationTitle setText:cityName];
         [weakSelf requestWeatherInfo:cityName];
     }];
@@ -89,10 +98,10 @@
  */
 - (void)requestWeatherInfo:(NSString *)city{
     //转菊花
-    //show
     [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
     _hudView.messageLabel.text = @"";
-    _hudView.refreshButton;
+    _hudView.indicatorViewSize = CGSizeMake(100, 100);
+    
     __weak typeof(self) weakSelf = self;
     
     NSString *URLString = @"http://v.juhe.cn/weather/index";
@@ -117,8 +126,11 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //提示网络请求失败，检查网络
         NSLog(@"请求失败");
-        [_hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
-        _hudView.messageLabel.text = @"";
+        weakSelf.hudView.indicatorViewSize = CGSizeMake(100, 100);
+        weakSelf.hudView.messageLabel.text = @"网络请求失败，请检查网络!";
+        [weakSelf.hudView.refreshButton setTitle:@"刷新" forState:UIControlStateNormal];
+        weakSelf.hudView.customImage = [UIImage imageNamed:@"failed"];
+        [weakSelf.hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
     }];
 }
 
@@ -206,8 +218,8 @@
     [self.headerView setBackgroundColor:[UIColor clearColor]];
     
     self.shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.shareBtn setFrame:CGRectMake(self.view.bounds.size.width - 40- 20, 20, 40, 40)];
-    [self.shareBtn setBackgroundImage:[UIImage imageNamed:@"icon-flyout-iphone"] forState:UIControlStateNormal];
+    [self.shareBtn setFrame:CGRectMake(self.view.bounds.size.width - 40- 20, 28, 18, 22)];
+    [self.shareBtn setBackgroundImage:[UIImage imageNamed:@"GiftShare_icon_18x22_"] forState:UIControlStateNormal];
     [self.shareBtn setBackgroundColor:[UIColor clearColor]];
     [self.shareBtn addTarget:self action:@selector(shareWeather:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -278,8 +290,9 @@
  * @brief 设置城市名称
  */
 - (void)setCityName:(NSString *)name{
-    [self.locationView.locationTitle setText:name];
-    [self requestWeatherInfo:name];
+    self.locateCity = name;
+    [self.locationView.locationTitle setText:self.locateCity];
+    [self requestWeatherInfo:self.locateCity];
 }
 
 #pragma mark - freshData
