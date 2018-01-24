@@ -116,6 +116,12 @@
         return @"flurries_day_night";
     }else if([weather isEqualToString:@"阴转大雪"]){
         return @"snow_day_night";
+    }else if([weather isEqualToString:@"阴转雨夹雪"]){
+        return @"flurries_day_night";
+    }else if([weather isEqualToString:@"雨夹雪转阴"]){
+        return @"cloudy_day_night";
+    }else if([weather isEqualToString:@"阴转中雪-大雪"]){
+        return @"snow_day_night";
     }
     
     return @"";
