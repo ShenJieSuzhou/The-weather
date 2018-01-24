@@ -1,5 +1,5 @@
 
-![这里写图片描述](https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/icon.png)
+![这里写图片描述](https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/180.png)
 # The-weather
 是使用开放的天气API来开发一个自定义的天气预报App。
 主要功能包括：
@@ -8,17 +8,16 @@
 3.可视化天气数据，包括未来一个礼拜的天气，以及各种天气指数
 4.热门体育赛事新闻
 5.热门新闻头条
+5.自动定位
 
 The-weather 基于MVC架构实现，其中用到了SDWebImage图片加载框架，AFNetworking框架，MJRefresh上下拉刷新框架，JSONKIT，Masonry，JHUD。其中界面布局用到了UItableview以及UIcollectionView。目前已适配iOS11和iPhoneX 。如果你觉得很好，请给个 Star ✨。
 
 # 预览
 <table>
     <tr>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/1.jpg"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/2.PNG"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/3.PNG"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/4.PNG"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/5.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0793.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0794.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0795.PNG"></td>
     </tr>
 </table>
 
