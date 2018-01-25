@@ -14,6 +14,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    _tempture.adjustsFontSizeToFitWidth = YES;
+    _weather1.adjustsFontSizeToFitWidth = YES;
+    _weather2.adjustsFontSizeToFitWidth = YES;
 }
 
 - (void)layoutSubviews{
@@ -35,10 +39,10 @@
         make.right.equalTo(_todayVIew).with.offset(-20);
     }];
     
-    [self.weather1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_data1).with.offset(40);
-        make.left.equalTo(_todayVIew).with.offset(20);
-    }];
+//    [self.weather1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_data1).with.offset(40);
+//        make.left.equalTo(_todayVIew).with.offset(20);
+//    }];
     
     [self.data2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_tommorrowView).with.offset(20);
@@ -50,10 +54,10 @@
         make.right.equalTo(_tommorrowView).with.offset(-20);
     }];
     
-    [self.weather2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_data2).with.offset(40);
-        make.left.equalTo(_tommorrowView).with.offset(20);
-    }];
+//    [self.weather2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_data2).with.offset(40);
+//        make.left.equalTo(_tommorrowView).with.offset(20);
+//    }];
  
     [self.icon1 setFrame:CGRectMake(self.todayVIew.frame.size.width - 20 - self.icon1.frame.size.width, self.weather1.frame.origin.y, self.icon1.frame.size.width, self.icon1.frame.size.height)];
     
