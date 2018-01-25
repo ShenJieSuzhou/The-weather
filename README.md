@@ -15,6 +15,7 @@ The-weather 基于MVC架构实现，其中用到了SDWebImage图片加载框架�
 # 预览
 <table>
     <tr>
+        <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0829.PNG"></td>
         <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0793.PNG"></td>
         <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0794.PNG"></td>
         <td><img src="https://github.com/ShenJieSuzhou/The-weather/blob/master/TheWeather/screenshot/IMG_0795.PNG"></td>
